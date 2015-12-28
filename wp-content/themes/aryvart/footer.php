@@ -25,7 +25,7 @@
           <ul>
             <li><i class="fa fa-phone"></i> &nbsp; &nbsp;&nbsp;<?php echo get_option('telephone'); ?></li>
             <li><i class="fa fa-envelope-o"></i> &nbsp; &nbsp;&nbsp;<?php echo get_option('email'); ?></li>
-            <li><i class="fa fa-map-marker"></i> &nbsp; &nbsp;&nbsp;<?php echo get_option('street'); ?>&nbsp; &nbsp; <?php   echo get_option('state');?></li>
+            <li><i class="fa fa-map-marker"></i> &nbsp; &nbsp;&nbsp;<?php echo get_option('address'); ?>&nbsp; &nbsp; <?php   echo get_option('state');?></li>
           </ul>
         </div>
       </div>   
@@ -45,7 +45,7 @@
       </ul>
     </div>
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-      <p>Copyright&copy; 2015 All Reserved by Aryvart</p> 
+      <p>Copyright&copy; <?php _e(date("Y")); ?> All Reserved by Aryvart</p> 
     </div>
   </div>
 </footer>
@@ -66,5 +66,4 @@ $(document).ready(function(){
   });
 });
 </script>
-
 </html>
