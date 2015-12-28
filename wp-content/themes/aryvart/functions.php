@@ -14,13 +14,13 @@ function my_general_section() {
     );
 
     add_settings_field( // Option 1
-        'street', // Option ID
-        'Street', // Label
+        'address', // Option ID
+        'Address', // Label
         'my_textbox_callback', // !important - This is where the args go!
         'general', // Page it will be displayed (General Settings)
         'my_settings_section', // Name of our section
         array( // The $args
-            'street' // Should match Option ID
+            'address' // Should match Option ID
         )  
     ); 
     add_settings_field( // Option 3
@@ -55,7 +55,7 @@ function my_general_section() {
     ); 
     
 
-    register_setting('general','street', 'esc_attr');
+    register_setting('general','address', 'esc_attr');
     register_setting('general','state', 'esc_attr');
     register_setting('general','telephone', 'esc_attr');
     register_setting('general','email', 'esc_attr');
