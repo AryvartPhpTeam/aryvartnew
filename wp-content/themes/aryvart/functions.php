@@ -70,6 +70,7 @@ function my_textbox_callback($args) {  // Textbox Callback
     $option = get_option($args[0]);
     echo '<input type="text" class="regular-text" id="'. $args[0] .'" name="'. $args[0] .'" value="' . $option . '" />';
 }
+
 add_action('init', 'event_register');
 
 function event_register() {
@@ -115,3 +116,58 @@ function save_post_date_meta($post_id, $post)
     update_post_meta($post_id, 'entry_post_date', $_POST['entry_post_date']);
 }
     
+
+add_action('admin_menu', 'aryvart_menu');
+
+function aryvart_menu() {
+    add_menu_page('Aryvart Options', 'Aryvart Options', 'manage_options', 'aryvart', 'my_plugin_option', '', 6);
+    add_submenu_page('aryvart', 'Aryvart Contact', 'Aryvart Contact', 'manage_options', 'aryvart_contact', 'my_custom_submenu_page_callback');
+}
+
+function my_plugin_option(){
+    
+    if(isset($_POST['submit']))
+    {
+        update_option('service_info', $_POST['service_info']);
+    }
+
+    $service_info = get_option('service_info');
+   
+    $fields = array(
+        'successful_years' => 'Successful Years',
+        'developers' => 'Developers & UI Engineers',
+        'successful_products' => 'Successful Mobile & Web Products',
+        'satisfaction' => 'Customer Satisfaction',
+        'ourservice' => 'Our Service',
+        'ourclient' => 'Our Client',
+        'whatwedo' => 'What We Do');
+
+    ?>
+
+    <div class="wrap">
+        <h1>General Settings</h1>
+        <form novalidate="novalidate" method="post">
+            <table class="form-table">
+                <tbody>
+                    <?php foreach($fields as $name=>$label){?>
+                    <tr>
+                        <th scope="row">
+                            <label for="blogname"><?php _e($label); ?></label>
+                        </th>
+                        <td>
+                            <input id="blogname" class="regular-text" type="text" value="<?php _e(isset($service_info[$name]) ? $service_info[$name] : '');?>" name="service_info[<?php _e($name); ?>]">
+                        </td>
+                    </tr>
+                    <?php }?>
+                </tbody>
+            </table>
+            <?php submit_button();?>
+        </form>
+    </div>
+
+    <?php
+}
+function my_custom_submenu_page_callback(){
+    echo "Admin Page Test"; 
+}
+

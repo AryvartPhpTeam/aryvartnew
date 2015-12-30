@@ -5,8 +5,7 @@
       <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 mar-top">
         <div class="services animatedParent">
           <h3 class='animated bounceInDown'>OUR SERVICES</h3>
-          <h2 class='animated bounceInDown'><strong>WHAT WE CAN DO </br>
-            FOR YOU</strong></h2>
+          <h2 class='animated bounceInDown'><strong><?php $service_info = get_option('service_info');?><?php _e($service_info['ourservice']); ?></strong></h2>
         </div>
       </div>
       <?php 
@@ -33,42 +32,46 @@
 <section class="banner-block2">
   <div class="container">
     <div class="row">
+      <?php 
+      $testimonial = get_posts(array('post_type' => 'testimonials-widget'));
+      foreach($testimonial as $res){
+        $image = wp_get_attachment_image_src( get_post_thumbnail_id( $res->ID ), 'single-post-thumbnail' );
+      ?>
       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 mrg-10 animatedParent">
         <div class="client animated bounceInLeft slow">
-        <img src="<?php echo get_template_directory_uri(); ?>/images/cod.png">
-          <p>Our experience with Aryvart Team was very positive and extremely professional. At first we were worried about the risk of outsourcing efforts to a company we had never used.
-            Through a solid list of references we solidified our decision and began development</p>
+          <img src="<?php _e($image[0]); ?>">
+          <p><?php _e($res->post_content);?></p>
         </div>
       </div>
-      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 mrg-10 animatedParent">
-        <div class="client animated bounceInLeft slow"><img src="<?php echo get_template_directory_uri(); ?>/images/cod.png">
-          <p>Our experience with Aryvart Team was very positive and extremely professional. At first we were worried about the risk of outsourcing efforts to a company we had never used.
-            Through a solid list of references we solidified our decision and began development</p>
-        </div>
-      </div>
+      <?php }?>
       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 animatedParent">
         <div class="client1  animated bounceInRight slow">
           <h3> OUR CLIENTS</h3>
-          <h2><strong> CLIENTS THAT TRUST <br>
-            OUR SERVICES</strong></h2>
+          <h2><strong><?php _e($service_info['ourclient']); ?></strong></h2>
         </div>
       </div>
     </div>
+   
     <div class="row mrg-top">
+    
+                 
+                    
       <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 animatedParent">
         <div class="client-icon bor-rit2 animated bounceInUp padded"> <img src="<?php echo get_template_directory_uri(); ?>/images/icon5.png">
           <div class="row">
-            <div class="star"> <span><strong class="fnt-sz">7+</strong></span>
-              <p>Successful<br>
-                Years</p>
+            <div class="star"> <span><strong class="fnt-sz">
+             <?php _e($service_info['successful_years']); ?> </strong></span>
+              <p>Successfull<br> Years</p>
+
             </div>
           </div>
         </div>
       </div>
+      
       <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 animatedParent">
         <div class="client-icon bor-rit1 animated bounceInUp padded"> <img src="<?php echo get_template_directory_uri(); ?>/images/icon6.png">
           <div class="row">
-            <div class="star"> <span><strong class="fnt-sz">50+</strong></span>
+            <div class="star"> <span><strong class="fnt-sz"><?php _e($service_info['developers']); ?></strong></span>
               <p>Developers & <br>
                 UI Engineers</p>
             </div>
@@ -78,7 +81,7 @@
       <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 animatedParent">
         <div class="client-icon bor-rit2 animated bounceInUp padded"> <img src="<?php echo get_template_directory_uri(); ?>/images/icon7.png">
           <div class="row">
-            <div class="star"> <span><strong class="fnt-sz">26+</strong></span>
+            <div class="star"> <span><strong class="fnt-sz"><?php _e($service_info['successful_products']); ?></strong></span>
               <p>Successful Mobile <br>
                 & Web Products</p>
             </div>
@@ -88,7 +91,7 @@
       <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 animatedParent">
         <div class="client-icon bor-rit animated bounceInUp padded"> <img src="<?php echo get_template_directory_uri(); ?>/images/icon8.png">
           <div class="row">
-            <div class="star"> <span><strong class="fnt-sz">98%</strong></span>
+            <div class="star"> <span><strong class="fnt-sz"><?php _e($service_info['satisfaction']); ?></strong></span>
               <p>Customer <br>
                  Satisfaction</p>
             </div>
@@ -104,8 +107,8 @@
       <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12">
         <div class="latest-news1 animatedParent">
           <h2 class='animated bounceInDown'>WHAT WE DO<br>
-            <strong> LATEST NEWS AND <br>
-            EVENTS</strong></h2>
+
+            <strong><?php _e($service_info['whatwedo']); ?></strong></h2>
         </div>
       </div>
       <div class="col-lg-4 col-md-4 col-sm-2 col-xs-12">
