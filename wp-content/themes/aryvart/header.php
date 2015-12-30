@@ -60,10 +60,7 @@
   <div class="container">
     <div class="row icon-hide">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 touch">
-          <ul class="list-inline text-right">
-            <li class="mail"><a href="contact.html"><i class="fa fa-phone"></i>&nbsp; Contact us </a></li>
-            <li class="mail"><a href="careers.html"><i class="fa fa-user"></i>&nbsp; Careers</a></li>
-          </ul>
+      <?php wp_nav_menu(array('menu' => 'header_top_menu')); ?>
       </div>
     </div>
   </div>
