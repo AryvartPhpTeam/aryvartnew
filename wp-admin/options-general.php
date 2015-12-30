@@ -52,7 +52,7 @@ include( ABSPATH . 'wp-admin/admin-header.php' );
 <div class="wrap">
 <h1><?php echo esc_html( $title ); ?></h1>
 
-<form method="post" action="options.php" novalidate="novalidate">
+<form method="post" action="options.php" enctype="multipart/form-data" novalidate="novalidate">
 <?php settings_fields('general'); ?>
 
 <table class="form-table">

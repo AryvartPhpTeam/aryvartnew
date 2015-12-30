@@ -8,7 +8,7 @@ add_action('admin_init', 'my_general_section');
 function my_general_section() {  
     add_settings_section(  
         'my_settings_section', // Section ID 
-        'My Options Title', // Section Title
+        'My Footer Settings', // Section Title
         'my_section_options_callback', // Callback
         'general' // What Page?  This makes the section show up on the General Settings Page
     );
@@ -53,22 +53,82 @@ function my_general_section() {
             'email' // Should match Option ID
         )  
     ); 
-    
+    add_settings_field( // Option 5
+        'title', // Option ID
+        'Title', // Label
+        'my_textbox_callback', // !important - This is where the args go!
+        'general', // Page it will be displayed
+        'my_settings_section', // Name of our section (General Settings)
+        array( // The $args
+            'title' // Should match Option ID
+        )  
+    ); 
+    add_settings_field( // Option 5
+        'title1', // Option ID
+        'Title1', // Label
+        'my_textbox_callback', // !important - This is where the args go!
+        'general', // Page it will be displayed
+        'my_settings_section', // Name of our section (General Settings)
+        array( // The $args
+            'title1' // Should match Option ID
+        )  
+    ); 
+    add_settings_field( // Option 5
+        'title2', // Option ID
+        'Title2', // Label
+        'my_textbox_callback', // !important - This is where the args go!
+        'general', // Page it will be displayed
+        'my_settings_section', // Name of our section (General Settings)
+        array( // The $args
+            'title2' // Should match Option ID
+        )  
+    ); 
+    add_settings_field( // Option 5
+        'description', // Option ID
+        'description', // Label
+        'my_textbox_callback', // !important - This is where the args go!
+        'general', // Page it will be displayed
+        'my_settings_section', // Name of our section (General Settings)
+        array( // The $args
+            'description' // Should match Option ID
+        )  
+    ); 
+    add_settings_field( 
+        'upload', 
+        'image', 
+        'my_upload_callback',
+        'general', // Page it will be displayed
+        'my_settings_section', 
+        array( 'upload '
+        )
+
+     );
 
     register_setting('general','address', 'esc_attr');
     register_setting('general','state', 'esc_attr');
     register_setting('general','telephone', 'esc_attr');
     register_setting('general','email', 'esc_attr');
+    register_setting('general','title', 'esc_attr');
+    register_setting('general','title1', 'esc_attr');
+    register_setting('general','title2', 'esc_attr');
+    register_setting('general','description', 'esc_attr');
+    register_setting('general','upload', 'esc_html');
     
 }
 
 function my_section_options_callback() { // Section Callback
-    echo '<p>A little message on editing info</p>';  
+    echo '<p>Footer Field</p>';  
 }
 
 function my_textbox_callback($args) {  // Textbox Callback
     $option = get_option($args[0]);
     echo '<input type="text" class="regular-text" id="'. $args[0] .'" name="'. $args[0] .'" value="' . $option . '" />';
+}
+function my_upload_callback($args) {  // Textbox Callback
+    
+    print_r($_FILES);
+    $option = get_option($args[0]);
+    echo '<input type="file" name="upload" />';
 }
 
 add_action('init', 'event_register');
@@ -170,4 +230,8 @@ function my_plugin_option(){
 function my_custom_submenu_page_callback(){
     echo "Admin Page Test"; 
 }
+  
+
+
+
 
