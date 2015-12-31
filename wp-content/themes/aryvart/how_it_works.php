@@ -4,8 +4,7 @@ Template Name: How it works
 */
 get_header();
 ?>
-
-  <!-- header -->  
+<!-- header -->  
   <section class="blog-block clearfix">
     <div class="container">
       <div class="row">
@@ -23,37 +22,37 @@ get_header();
 <div class="row">
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
   <div id="timeline">
-		<ul id="dates">
-			<li><a href="#1"><i class="fa fa-lightbulb-o"></i></a></li>
-			<li><a href="#2"><i class="fa fa-desktop"></i></a></li>
-			<li><a href="#3"><i class="fa fa-pencil"></i></a></li> 
-			<li><a href="#4"><i class="fa fa-caret-right"></i></a></li>
-			<li><a href="#5"><i class="fa fa-smile-o"></i></a></li>
-		</ul>
-		<ul id="issues">
-			<li id="1">
-				<h1>Happy client ouis transfretavit tu iratus es contudic Profile</h1>
-				<p>Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis tincidunt ut, utinam saperet facilisi an vim.Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis tincidunt ut, utinam saperet facilisi an vim. Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis </p>
-			</li>
-			<li id="2">
-				<h1>Happy client ouis transfretavit tu iratus es contudic Profile</h1>
-				<p>Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis tincidunt ut, utinam saperet facilisi an vim.Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis tincidunt ut, utinam saperet facilisi an vim. Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis </p>
-			</li>
-			<li id="3">				
-				<h1>Happy client ouis transfretavit tu iratus es contudic Profile</h1>
-				<p>Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis tincidunt ut, utinam saperet facilisi an vim.Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis tincidunt ut, utinam saperet facilisi an vim. Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis </p>
-			</li>
-			<li id="4">
-				<h1>Happy client ouis transfretavit tu iratus es contudic Profile</h1>
-				<p>Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis tincidunt ut, utinam saperet facilisi an vim.Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis tincidunt ut, utinam saperet facilisi an vim. Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis </p>
-			</li>
-			<li id="5">
-				<h1>Happy client ouis transfretavit tu iratus es contudic Profile</h1>
-				<p>Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis tincidunt ut, utinam saperet facilisi an vim.Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis tincidunt ut, utinam saperet facilisi an vim. Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis </p>
-			</li>
-		</ul>
-		
-	</div>  
+    <ul id="dates">
+      <li><a href="#1"><i class="fa fa-lightbulb-o"></i></a></li>
+      <li><a href="#2"><i class="fa fa-desktop"></i></a></li>
+      <li><a href="#3"><i class="fa fa-pencil"></i></a></li> 
+      <li><a href="#4"><i class="fa fa-caret-right"></i></a></li>
+      <li><a href="#5"><i class="fa fa-smile-o"></i></a></li>
+    </ul>
+    <ul id="issues">
+      <li id="1">
+        <h1>Happy client ouis transfretavit tu iratus es contudic Profile</h1>
+        <p>Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis tincidunt ut, utinam saperet facilisi an vim.Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis tincidunt ut, utinam saperet facilisi an vim. Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis </p>
+      </li>
+      <li id="2">
+        <h1>Happy client ouis transfretavit tu iratus es contudic Profile</h1>
+        <p>Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis tincidunt ut, utinam saperet facilisi an vim.Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis tincidunt ut, utinam saperet facilisi an vim. Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis </p>
+      </li>
+      <li id="3">       
+        <h1>Happy client ouis transfretavit tu iratus es contudic Profile</h1>
+        <p>Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis tincidunt ut, utinam saperet facilisi an vim.Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis tincidunt ut, utinam saperet facilisi an vim. Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis </p>
+      </li>
+      <li id="4">
+        <h1>Happy client ouis transfretavit tu iratus es contudic Profile</h1>
+        <p>Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis tincidunt ut, utinam saperet facilisi an vim.Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis tincidunt ut, utinam saperet facilisi an vim. Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis </p>
+      </li>
+      <li id="5">
+        <h1>Happy client ouis transfretavit tu iratus es contudic Profile</h1>
+        <p>Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis tincidunt ut, utinam saperet facilisi an vim.Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis tincidunt ut, utinam saperet facilisi an vim. Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis </p>
+      </li>
+    </ul>
+    
+  </div>  
     </div>           
 </div>
 </div>
@@ -107,3 +106,40 @@ All in-house projects are also subjected to the same level of testing to ensure 
 </div>
 </div>
 <?php get_footer(); ?>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<!--<script src="js/jquery.timelinr-0.9.54.js"></script>-->
+  <script> 
+    $(function(){
+      /*$().timelinr({
+        autoPlay: 'true',
+        autoPlayDirection: 'forward'
+      })*/
+      var start = 0;
+      var slength = $("#dates li").length;
+      $("#dates li:eq("+start+") a").addClass('selected').parent().addClass('selected_parent');
+      $("#issues li:first").addClass('selected');
+      function myfunction(){
+        $("#dates li:eq("+start+") a").removeClass('selected').parent().removeClass('selected_parent');
+        $("#issues li:eq("+start+")").removeClass('selected');
+        start++;
+        
+        if(slength == start)
+          start = 0;
+        $("#dates li:eq("+start+") a").addClass('selected').parent().addClass('selected_parent');
+        $("#issues li:eq("+start+")").addClass('selected');
+      }
+      
+      setInterval(myfunction,5000);
+      
+      $("#dates li a").click(function(e){
+        e.preventDefault();
+        start = $(this).parent().index();
+        $("#dates li a").removeClass('selected').parent().removeClass('selected_parent');
+        $("#issues li").removeClass('selected');
+        
+        $("#dates li:eq("+start+") a").addClass('selected').parent().addClass('selected_parent');
+        $("#issues li:eq("+start+")").addClass('selected');
+      });
+    });
+  </script>
