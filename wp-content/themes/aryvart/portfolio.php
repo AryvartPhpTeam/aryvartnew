@@ -141,3 +141,23 @@ Template Name: portfolio
   </div>
 </section>
 <?php get_footer(); ?>
+<script type="text/javascript" src="js/jquery.isotope.min.js"></script>
+<script type="text/javascript" src="js/animated-masonry-gallery.js"></script>
+
+        <script src="js/bootstrap.lightbox.js"></script>
+        <script>
+// Load code prettifier
+$(document).ready(function(){
+  prettyPrint();
+});
+
+// Fancy text animation
+var ta = (function(a){
+  var a = $(a), b = a.text(), c = b.length, d = 200;
+  a.empty()
+  for(i=0;i<c;++i){
+    a.append($("<span/>").text(b[i]).fadeIn(1300+(d*i)));
+  }
+})("header p");
+$("abbr[data-toggle=tooltip]").tooltip();
+</script>

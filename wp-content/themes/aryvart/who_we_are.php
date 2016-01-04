@@ -10,9 +10,13 @@ Template Name: Who we are
     <div class="container">
       <div class="row">
         <div class="blog">
-          <h1>Who we are</h1>
+        	<?php
+                $post_id = 76;
+                $queried_post = get_post($post_id);
+                ?>
+          <h1><?php echo $queried_post->post_title; ?></h1>
           <hr class="blog-bor">
-          <p>Contrary to popular belief, Lorem Ipsum is not simply random text.</p>
+          <p><?php echo $queried_post->post_content; ?></p>
         </div>
       </div>
     </div>
@@ -35,10 +39,14 @@ Template Name: Who we are
 <section class="about-block" id="overview">
   <div class="container">
     <div class="who">
-      <h2>Over View</h2>
-      <p>Suspendisse convallis ipsum nibh, at imperdiet eros pellentesque id. Quisque </br>
-        neque neque, finibus sed mollis</p>
-      <img src="<?php echo get_template_directory_uri(); ?>/images/overview.png" class="img-responsive"> </div>
+    	<?php
+                $post_id = 41;
+                $queried_post = get_post($post_id);
+                $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ), 'single-post-thumbnail' );
+        ?>
+      <h2><?php echo $queried_post->post_title; ?></h2>
+      <p><?php echo $queried_post->post_content; ?></p>
+      <img src="<?php  _e($image[0]); ?>" class="img-responsive"> </div>
   </div>
 </section>
 <section class="we-are">
@@ -46,9 +54,13 @@ Template Name: Who we are
     <div class="row">
       <div class="col-lg-8 col-md-7 col-sm-5">
         <div class="we">
-          <h2>Who we are</h2>
-          <p>Aryvart IT Services is a reliable Web and Mobile Application Development company catering to the needs of clients from across various industries. We have partnered with hundreds of organisations and delivered top-class solutions for the most complex business challenges</p>
-          <p>As competition explodes and technology evolves with every passing year, survival in the business world becomes tougher and challenging. At Aryvart, we have the expertise, experience and the passion to build truly sustainable competitive advantages by working hand-in-hand with our valuable clients. </p>
+        <?php
+                $post_id = 47;
+                $queried_post = get_post($post_id);
+                
+        ?>
+          <h2><?php echo $queried_post->post_title; ?></h2>
+          <p><?php echo $queried_post->post_content; ?> </p>
         </div>
       </div>
     </div>
@@ -57,17 +69,24 @@ Template Name: Who we are
 <section class="our-view" id="mission">
   <div class="container">
     <div class="who">
-      <h2>Our Views</h2>
-      <p>Aryvart IT Services is a reliable Web and Mobile Application Development company catering to the </br>
-        needs of clients from across various industries. </p>
+    <?php
+                $post_id = 52;
+                $queried_post = get_post($post_id);
+    ?>    
+      <h2><?php echo $queried_post->post_title; ?></h2>
+      <p><?php echo $queried_post->post_content; ?></p>
     </div>
     <div class="row">
       <div class="col-md-4 col-xs-12">
         <div class="mission">
           <div class="ico"> <span><img src="<?php echo get_template_directory_uri(); ?>/images/mission.png"></span> </div>
           <div class="mission-detail">
-            <h4>Our Mission</h4>
-            <p>We are determined to work shoulder-to-shoulder with our valuable clients, understand their business goals and deliver solutions with a purpose and enable them to experience faster results for the investment made</p>
+          <?php
+                $post_id = 54;
+                $queried_post = get_post($post_id);
+          ?>   
+            <h4><?php echo $queried_post->post_title; ?></h4>
+            <p><?php echo $queried_post->post_content; ?></p>
           </div>
         </div>
       </div>
@@ -75,8 +94,12 @@ Template Name: Who we are
         <div class="mission">
           <div class="ico"> <span><img src="<?php echo get_template_directory_uri(); ?>/images/vission.png"></span> </div>
           <div class="mission-detail">
-            <h4>Our Vision</h4>
-            <p>As the digital era takes on the business world, we believe that our structured approach to projects and passion to deliver innovative solutions can successfully drive organisations, both small and big, towards building a sustainable competitive advantage</p>
+          <?php
+                $post_id = 57;
+                $queried_post = get_post($post_id);
+           ?>   
+            <h4><?php echo $queried_post->post_title; ?></h4>
+            <p><?php echo $queried_post->post_content; ?></p>
           </div>
         </div>
       </div>
@@ -84,8 +107,12 @@ Template Name: Who we are
         <div class="mission">
           <div class="ico"> <span><img src="<?php echo get_template_directory_uri(); ?>/images/philosopy.png"></span> </div>
           <div class="mission-detail">
-            <h4>Philosophy</h4>
-            <p>We are determined to work shoulder-to-shoulder with our valuable clients, understand their business goals and deliver solutions with a purpose and enable them to experience faster results for the investment made</p>
+          <?php
+                $post_id = 59;
+                $queried_post = get_post($post_id);
+           ?> 
+            <h4><?php echo $queried_post->post_title; ?></h4>
+            <p><?php echo $queried_post->post_content; ?></p>
           </div>
         </div>
       </div>
@@ -95,44 +122,66 @@ Template Name: Who we are
 <section class="our-team" id="ourteam">
   <div class="container">
     <div class="who">
-      <h2>Our Team</h2>
-      <p>Suspendisse convallis ipsum nibh, at imperdiet eros pellentesque id. Quisque </br>
-        neque neque, finibus sed mollis</p>
+     <?php
+                $post_id = 61;
+                $queried_post = get_post($post_id);
+       ?>
+      <h2><?php echo $queried_post->post_title; ?></h2>
+      <p><?php echo $queried_post->post_content; ?></p>
     </div>
     <div class="row">
       <div class="col-lg-4 col-md-3 col-sm-12">
         <div class="ary">
-          <h3>Aryvart</h3>
-          <p>As competition explodes and technology evolves with every passing year, survival in the business world becomes tougher and challenging. At Aryvart, we have the expertise, experience and the passion to build truly sustainable competitive advantages by working hand-in-hand with our valuable clients. </p>
+         <?php
+                $post_id = 63;
+                $queried_post = get_post($post_id);
+           ?>
+          <h3><?php echo $queried_post->post_title; ?></h3>
+          <p><?php echo $queried_post->post_content; ?></p>
         </div>
       </div>
       <div class="col-lg-8 col-md-9 col-sm-12">
         <div class="team-mem">
           <ul class="list-inline">
             <li>
-              <div class="view view-eighth"><img src="<?php echo get_template_directory_uri(); ?>/images/team01.jpg" class="img-responsive img-thumbnail">
+              <?php
+                $post_id = 73;
+                $queried_post = get_post($post_id);
+                $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ), 'single-post-thumbnail' );
+                ?>
+              <div class="view view-eighth"><img src="<?php  _e($image[0]); ?>" class="img-responsive img-thumbnail">
                 <div class="mask">
-                  <p><strong>Ronald I. Baker </strong> <br>
+                  <p><strong><?php echo $queried_post->post_title; ?></strong> <br>
                     <br>
-                    has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
+                    <?php echo $queried_post->post_content; ?></p>
                 </div>
               </div>
             </li>
             <li>
-              <div class="view view-eighth"><img src="<?php echo get_template_directory_uri(); ?>/images/team02.jpg" class="img-responsive img-thumbnail">
+            <?php
+                $post_id = 70;
+                $queried_post = get_post($post_id);
+                $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ), 'single-post-thumbnail' );
+               ?>
+              <div class="view view-eighth"><img src="<?php  _e($image[0]); ?>" class="img-responsive img-thumbnail">
                 <div class="mask">
-                  <p><strong>Ronald I. Baker </strong> <br>
+                  <p><strong><?php echo $queried_post->post_title; ?> </strong> <br>
                     <br>
-                    like these sweet mornings of spring which I enjoy with my whole heart.</p>
+                    <?php echo $queried_post->post_content; ?></p>
                 </div>
               </div>
             </li>
             <li>
-              <div class="view view-eighth"><img src="<?php echo get_template_directory_uri(); ?>/images/team03.jpg" class="img-responsive img-thumbnail">
+            <?php
+                $post_id = 66;
+                $queried_post = get_post($post_id);
+                $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ), 'single-post-thumbnail' );
+               ?>
+              <div class="view view-eighth"><img src="<?php  _e($image[0]); ?>" class="img-responsive img-thumbnail">
                 <div class="mask">
-                  <p><strong>Ronald I. Baker </strong> <br>
+                  <p><strong><?php echo $queried_post->post_title; ?> </strong> <br>
                     <br>
-                    like these sweet mornings of spring which I enjoy with my whole heart.</p>
+                    <?php echo $queried_post->post_content; ?></p>
                 </div>
               </div>
             </li>

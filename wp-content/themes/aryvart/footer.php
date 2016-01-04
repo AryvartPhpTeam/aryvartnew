@@ -3,8 +3,13 @@
     <div class="row mar-top1">   
       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
         <div class="foot">
-          <img src="<?php echo get_option('upload'); ?>" class="img-responsive">
-          <p><?php echo get_option('description'); ?></p>
+        <?php
+                $post_id = 26;
+                $queried_post = get_post($post_id);
+                $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ), 'single-post-thumbnail' );
+        ?>
+          <img src="<?php  _e($image[0]); ?>" class="img-responsive">
+          <p><?php echo $queried_post->post_content; ?></p>
         </div>
       </div>
       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
