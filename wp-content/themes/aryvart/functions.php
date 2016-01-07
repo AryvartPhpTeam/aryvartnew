@@ -126,9 +126,16 @@ function my_textbox_callback($args) {  // Textbox Callback
 }
 function my_upload_callback($args) {  // Textbox Callback
     
-    print_r($_FILES);
+    //print_r($_FILES);
     $option = get_option($args[0]);
-    echo '<input type="file" name="upload" />';
+    if ( $pages = get_pages( $args )) {
+    echo "<select multiple>";
+    foreach ( $pages as $page ) {
+      echo "<option value='{$page->ID}'>{$page->post_title}</option>";
+    }
+    echo "</select>";
+  }
+    
 }
 
 add_action('init', 'event_register');
@@ -139,12 +146,22 @@ function event_register() {
                         'name' => 'Events',
                         'add_new_item' => 'Add New Events',
                        ),
-
                 'public' => true,
                 'capability_type' => 'post',
                 'supports' => array('title','editor','author','comments','thumbnail')
     );
     register_post_type( 'events' , $args );
+}
+
+add_action('init', 'footer_image');
+function footer_image() {
+    $args = array(
+                'labels' =>array(
+                        'name' => 'Footer',
+                        'add_new_item' => 'Add footer',
+                       )
+                );
+    register_post_type( 'footer' , $args );
 }
 
 function hkdc_admin_styles() {
@@ -184,6 +201,20 @@ function aryvart_menu() {
     add_submenu_page('aryvart', 'Aryvart Contact', 'Aryvart Contact', 'manage_options', 'aryvart_contact', 'my_custom_submenu_page_callback');
 }
 
+
+add_action( 'add_meta_boxes', 'myplugin_add_custom_box' );
+
+/* Adds a box to the main column on the Post edit screens */
+function myplugin_add_custom_box() {
+    add_meta_box( 
+        'myplugin_sectionid',
+        __( 'My Post Section Title', 'myplugin_textdomain' ),
+        'myplugin_inner_custom_box',
+        'post' 
+    );
+}
+
+
 function my_plugin_option(){
     
     if(isset($_POST['submit']))
@@ -192,15 +223,18 @@ function my_plugin_option(){
     }
 
     $service_info = get_option('service_info');
-   
+    //print_r($service_info);
     $fields = array(
-        'successful_years' => 'Successful Years',
-        'developers' => 'Developers & UI Engineers',
-        'successful_products' => 'Successful Mobile & Web Products',
-        'satisfaction' => 'Customer Satisfaction',
-        'ourservice' => 'Our Service',
-        'ourclient' => 'Our Client',
-        'whatwedo' => 'What We Do');
+        'whoweare' => 'Who we are',
+        'overview' => 'Over view',
+        'whoweare2' => 'Who we are2',
+        'ourview' => 'Our Views',
+        'ourmission' => 'Our Mission',
+        'ourvision' => 'Our Vision',
+        'philosopy' => 'Philosopy',
+        'ourteam' => 'Our Team',
+        'aryvart' => 'Aryvart',
+        'get' => 'Get a Quote',);
 
     ?>
 
@@ -215,7 +249,15 @@ function my_plugin_option(){
                             <label for="blogname"><?php _e($label); ?></label>
                         </th>
                         <td>
-                            <input id="blogname" class="regular-text" type="text" value="<?php _e(isset($service_info[$name]) ? $service_info[$name] : '');?>" name="service_info[<?php _e($name); ?>]">
+                          <?php  
+    $pages = get_pages( $args ) ;
+    echo "<select name='service_info[$name]>' ";
+    foreach ( $pages as $page ) {
+      $sel = (isset($service_info[$name]) && $page->ID == $service_info[$name]) ? 'selected' : '';
+      echo "<option $sel value='{$page->ID}'>{$page->post_title}</option>";
+    }
+    echo "</select>";
+    ?>
                         </td>
                     </tr>
                     <?php }?>
@@ -230,8 +272,17 @@ function my_plugin_option(){
 function my_custom_submenu_page_callback(){
     echo "Admin Page Test"; 
 }
-  
-
-
-
+ add_action('init', 'our_team');
+function our_team() {
+    $args = array(
+                'labels' =>array(
+                        'name' => 'Our Team',
+                        'add_new_item' => 'Add New Team',
+                       ),
+                'public' => true,
+                'capability_type' => 'post',
+                'supports' => array('title','editor','author','thumbnail')
+    );
+    register_post_type( 'ourteam' , $args );
+}
 

@@ -10,13 +10,10 @@ Template Name: Who we are
     <div class="container">
       <div class="row">
         <div class="blog">
-        	<?php
-                $post_id = 76;
-                $queried_post = get_post($post_id);
-                ?>
-          <h1><?php echo $queried_post->post_title; ?></h1>
+        	<?php $service_info = get_option('service_info'); ?>
+          <h1><?php _e(get_the_title($service_info['whoweare'])); ?></h1>
           <hr class="blog-bor">
-          <p><?php echo $queried_post->post_content; ?></p>
+          <p><?php _e(get_post($service_info['whoweare'])->post_content); ?></p>
         </div>
       </div>
     </div>
@@ -39,29 +36,19 @@ Template Name: Who we are
 <section class="about-block" id="overview">
   <div class="container">
     <div class="who">
-    	<?php
-                $post_id = 41;
-                $queried_post = get_post($post_id);
-                $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ), 'single-post-thumbnail' );
-        ?>
-      <h2><?php echo $queried_post->post_title; ?></h2>
-      <p><?php echo $queried_post->post_content; ?></p>
-      <img src="<?php  _e($image[0]); ?>" class="img-responsive"> </div>
+    <h2><?php _e(get_the_title($service_info['overview'])); ?></h2>
+      <p><?php _e(get_post($service_info['overview'])->post_content); ?></p>
+      <?php _e(get_the_post_thumbnail($service_info['overview'],'full', array( 'class' => 'img-responsive' ))); ?>
   </div>
 </section>
 <section class="we-are">
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-7 col-sm-5">
-        <div class="we">
-        <?php
-                $post_id = 47;
-                $queried_post = get_post($post_id);
-                
-        ?>
-          <h2><?php echo $queried_post->post_title; ?></h2>
-          <p><?php echo $queried_post->post_content; ?> </p>
-        </div>
+        <div class="we"> 
+          <h2><?php _e(get_the_title($service_info['whoweare2'])); ?></h2>
+          <p><?php _e(get_post($service_info['whoweare2'])->post_content); ?></p>
+         </div>
       </div>
     </div>
   </div>
@@ -69,24 +56,16 @@ Template Name: Who we are
 <section class="our-view" id="mission">
   <div class="container">
     <div class="who">
-    <?php
-                $post_id = 52;
-                $queried_post = get_post($post_id);
-    ?>    
-      <h2><?php echo $queried_post->post_title; ?></h2>
-      <p><?php echo $queried_post->post_content; ?></p>
+      <h2><?php _e(get_the_title($service_info['ourview'])); ?></h2>
+      <p><?php _e(get_post($service_info['ourview'])->post_content); ?></p>
     </div>
     <div class="row">
       <div class="col-md-4 col-xs-12">
         <div class="mission">
           <div class="ico"> <span><img src="<?php echo get_template_directory_uri(); ?>/images/mission.png"></span> </div>
           <div class="mission-detail">
-          <?php
-                $post_id = 54;
-                $queried_post = get_post($post_id);
-          ?>   
-            <h4><?php echo $queried_post->post_title; ?></h4>
-            <p><?php echo $queried_post->post_content; ?></p>
+            <h4><?php _e(get_the_title($service_info['ourmission'])); ?></h4>
+            <p><?php _e(get_post($service_info['ourmission'])->post_content); ?></p>
           </div>
         </div>
       </div>
@@ -94,12 +73,8 @@ Template Name: Who we are
         <div class="mission">
           <div class="ico"> <span><img src="<?php echo get_template_directory_uri(); ?>/images/vission.png"></span> </div>
           <div class="mission-detail">
-          <?php
-                $post_id = 57;
-                $queried_post = get_post($post_id);
-           ?>   
-            <h4><?php echo $queried_post->post_title; ?></h4>
-            <p><?php echo $queried_post->post_content; ?></p>
+            <h4><?php _e(get_the_title($service_info['ourvision'])); ?></h4>
+            <p><?php _e(get_post($service_info['ourvision'])->post_content); ?></p>
           </div>
         </div>
       </div>
@@ -107,12 +82,8 @@ Template Name: Who we are
         <div class="mission">
           <div class="ico"> <span><img src="<?php echo get_template_directory_uri(); ?>/images/philosopy.png"></span> </div>
           <div class="mission-detail">
-          <?php
-                $post_id = 59;
-                $queried_post = get_post($post_id);
-           ?> 
-            <h4><?php echo $queried_post->post_title; ?></h4>
-            <p><?php echo $queried_post->post_content; ?></p>
+            <h4><?php _e(get_the_title($service_info['philosopy'])); ?></h4>
+            <p><?php _e(get_post($service_info['philosopy'])->post_content); ?></p>
           </div>
         </div>
       </div>
@@ -122,69 +93,35 @@ Template Name: Who we are
 <section class="our-team" id="ourteam">
   <div class="container">
     <div class="who">
-     <?php
-                $post_id = 61;
-                $queried_post = get_post($post_id);
-       ?>
-      <h2><?php echo $queried_post->post_title; ?></h2>
-      <p><?php echo $queried_post->post_content; ?></p>
+     <h2><?php _e(get_the_title($service_info['ourteam'])); ?></h2>
+      <p><?php _e(get_post($service_info['ourteam'])->post_content); ?></p>
     </div>
     <div class="row">
       <div class="col-lg-4 col-md-3 col-sm-12">
         <div class="ary">
-         <?php
-                $post_id = 63;
-                $queried_post = get_post($post_id);
-           ?>
-          <h3><?php echo $queried_post->post_title; ?></h3>
-          <p><?php echo $queried_post->post_content; ?></p>
+         <h3><?php _e(get_the_title($service_info['aryvart'])); ?></h3>
+      <p><?php _e(get_post($service_info['aryvart'])->post_content); ?></p>
         </div>
       </div>
-      <div class="col-lg-8 col-md-9 col-sm-12">
+       <div class="col-lg-8 col-md-9 col-sm-12">
         <div class="team-mem">
           <ul class="list-inline">
+          <?php 
+      $team = get_posts(array('post_type' => 'ourteam'));
+      foreach($team as $res){
+        $image = wp_get_attachment_image_src( get_post_thumbnail_id( $res->ID ), 'single-post-thumbnail' );
+        
+      ?>
             <li>
-              <?php
-                $post_id = 73;
-                $queried_post = get_post($post_id);
-                $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ), 'single-post-thumbnail' );
-                ?>
-              <div class="view view-eighth"><img src="<?php  _e($image[0]); ?>" class="img-responsive img-thumbnail">
+              <div class="view view-eighth"><img src="<?php _e($image[0]); ?>" class="img-responsive img-thumbnail">
                 <div class="mask">
-                  <p><strong><?php echo $queried_post->post_title; ?></strong> <br>
+                  <p><strong><?php _e($res->post_title);?></strong> <br>
                     <br>
-                    <?php echo $queried_post->post_content; ?></p>
+                    <?php _e($res->post_content);?></p>
                 </div>
               </div>
             </li>
-            <li>
-            <?php
-                $post_id = 70;
-                $queried_post = get_post($post_id);
-                $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ), 'single-post-thumbnail' );
-               ?>
-              <div class="view view-eighth"><img src="<?php  _e($image[0]); ?>" class="img-responsive img-thumbnail">
-                <div class="mask">
-                  <p><strong><?php echo $queried_post->post_title; ?> </strong> <br>
-                    <br>
-                    <?php echo $queried_post->post_content; ?></p>
-                </div>
-              </div>
-            </li>
-            <li>
-            <?php
-                $post_id = 66;
-                $queried_post = get_post($post_id);
-                $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ), 'single-post-thumbnail' );
-               ?>
-              <div class="view view-eighth"><img src="<?php  _e($image[0]); ?>" class="img-responsive img-thumbnail">
-                <div class="mask">
-                  <p><strong><?php echo $queried_post->post_title; ?> </strong> <br>
-                    <br>
-                    <?php echo $queried_post->post_content; ?></p>
-                </div>
-              </div>
-            </li>
+            <?php } ?>
           </ul>
         </div>
       </div>
@@ -197,9 +134,9 @@ Template Name: Who we are
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="blog-con">
-          <h2>We Always Try to Create a Difference</h2>
-          <h6>It has roots in a piece of classical Latin literature from 45 BC,</h6>
-          <a href="#" class="btn btn-default"> get a quote</a> </div>
+          <h2><?php _e(get_the_title($service_info['get'])); ?></h2>
+          <h6><?php _e(get_post($service_info['get'])->post_content); ?></h6>
+        <a href="#" class="btn btn-default"> get a quote</a> </div>
       </div>
     </div>
   </div>

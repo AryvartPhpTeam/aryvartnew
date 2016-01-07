@@ -3,15 +3,17 @@
     <div class="row mar-top1">   
       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
         <div class="foot">
-        <?php
-                $post_id = 26;
-                $queried_post = get_post($post_id);
-                $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ), 'single-post-thumbnail' );
-        ?>
+        <?php 
+      $testimonial = get_posts(array('post_type' => 'footer'));
+      foreach($testimonial as $res){
+        $image = wp_get_attachment_image_src( get_post_thumbnail_id( $res->ID ), 'single-post-thumbnail' );
+      ?>
+        
           <img src="<?php  _e($image[0]); ?>" class="img-responsive">
-          <p><?php echo $queried_post->post_content; ?></p>
+          <p><?php echo $res->post_content; ?></p>
         </div>
       </div>
+      <?php }?>
       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
       <div class="foot">
         <div class="foot-news">
