@@ -8,7 +8,7 @@ add_action('admin_init', 'my_general_section');
 function my_general_section() {  
     add_settings_section(  
         'my_settings_section', // Section ID 
-        'My Options Title', // Section Title
+        'My Footer Settings', // Section Title
         'my_section_options_callback', // Callback
         'general' // What Page?  This makes the section show up on the General Settings Page
     );
@@ -53,22 +53,89 @@ function my_general_section() {
             'email' // Should match Option ID
         )  
     ); 
-    
+    add_settings_field( // Option 5
+        'title', // Option ID
+        'Title', // Label
+        'my_textbox_callback', // !important - This is where the args go!
+        'general', // Page it will be displayed
+        'my_settings_section', // Name of our section (General Settings)
+        array( // The $args
+            'title' // Should match Option ID
+        )  
+    ); 
+    add_settings_field( // Option 5
+        'title1', // Option ID
+        'Title1', // Label
+        'my_textbox_callback', // !important - This is where the args go!
+        'general', // Page it will be displayed
+        'my_settings_section', // Name of our section (General Settings)
+        array( // The $args
+            'title1' // Should match Option ID
+        )  
+    ); 
+    add_settings_field( // Option 5
+        'title2', // Option ID
+        'Title2', // Label
+        'my_textbox_callback', // !important - This is where the args go!
+        'general', // Page it will be displayed
+        'my_settings_section', // Name of our section (General Settings)
+        array( // The $args
+            'title2' // Should match Option ID
+        )  
+    ); 
+    add_settings_field( // Option 5
+        'description', // Option ID
+        'description', // Label
+        'my_textbox_callback', // !important - This is where the args go!
+        'general', // Page it will be displayed
+        'my_settings_section', // Name of our section (General Settings)
+        array( // The $args
+            'description' // Should match Option ID
+        )  
+    ); 
+    add_settings_field( 
+        'upload', 
+        'image', 
+        'my_upload_callback',
+        'general', // Page it will be displayed
+        'my_settings_section', 
+        array( 'upload '
+        )
+
+     );
 
     register_setting('general','address', 'esc_attr');
     register_setting('general','state', 'esc_attr');
     register_setting('general','telephone', 'esc_attr');
     register_setting('general','email', 'esc_attr');
+    register_setting('general','title', 'esc_attr');
+    register_setting('general','title1', 'esc_attr');
+    register_setting('general','title2', 'esc_attr');
+    register_setting('general','description', 'esc_attr');
+    register_setting('general','upload', 'esc_html');
     
 }
 
 function my_section_options_callback() { // Section Callback
-    echo '<p>A little message on editing info</p>';  
+    echo '<p>Footer Field</p>';  
 }
 
 function my_textbox_callback($args) {  // Textbox Callback
     $option = get_option($args[0]);
     echo '<input type="text" class="regular-text" id="'. $args[0] .'" name="'. $args[0] .'" value="' . $option . '" />';
+}
+function my_upload_callback($args) {  // Textbox Callback
+    
+    //print_r($_FILES);
+    $option = get_option($args[0]);
+    if ( $pages = get_pages( $args )) {
+    echo "<select multiple>";
+    foreach ( $pages as $page ) {
+      echo "<option value='{$page->ID}'>{$page->post_title}</option>";
+    }
+    echo "</select>";
+  }
+    
 }
 
 add_action('init', 'event_register');
@@ -79,12 +146,22 @@ function event_register() {
                         'name' => 'Events',
                         'add_new_item' => 'Add New Events',
                        ),
-
                 'public' => true,
                 'capability_type' => 'post',
                 'supports' => array('title','editor','author','comments','thumbnail')
     );
     register_post_type( 'events' , $args );
+}
+
+add_action('init', 'footer_image');
+function footer_image() {
+    $args = array(
+                'labels' =>array(
+                        'name' => 'Footer',
+                        'add_new_item' => 'Add footer',
+                       )
+                );
+    register_post_type( 'footer' , $args );
 }
 
 function hkdc_admin_styles() {
@@ -124,6 +201,26 @@ function aryvart_menu() {
     add_submenu_page('aryvart', 'Aryvart Contact', 'Aryvart Contact', 'manage_options', 'aryvart_contact', 'my_custom_submenu_page_callback');
 }
 
+
+add_action( 'add_meta_boxes', 'myplugin_add_custom_box' );
+
+/* Adds a box to the main column on the Post edit screens */
+function myplugin_add_custom_box() {
+    add_meta_box( 
+        'myplugin_sectionid',
+        __( 'My Post Section Title', 'myplugin_textdomain' ),
+        'myplugin_inner_custom_box',
+        'post' 
+    );
+}
+
+add_action('admin_menu', 'page_menu');
+
+function page_menu() {
+    add_menu_page('Aryvart Options', 'What we are', 'manage_options', 'aryvartpage', 'my_plugin_option', '', 6);
+    add_submenu_page('aryvartpage', 'What we do', 'What we do', 'manage_options', 'what_we_do', 'my_custom_submenu_page_callback');
+}
+
 function my_plugin_option(){
     
     if(isset($_POST['submit']))
@@ -132,15 +229,18 @@ function my_plugin_option(){
     }
 
     $service_info = get_option('service_info');
-   
+    //print_r($service_info);
     $fields = array(
-        'successful_years' => 'Successful Years',
-        'developers' => 'Developers & UI Engineers',
-        'successful_products' => 'Successful Mobile & Web Products',
-        'satisfaction' => 'Customer Satisfaction',
-        'ourservice' => 'Our Service',
-        'ourclient' => 'Our Client',
-        'whatwedo' => 'What We Do');
+        'whoweare' => 'Who we are',
+        'overview' => 'Over view',
+        'whoweare2' => 'Who we are2',
+        'ourview' => 'Our Views',
+        'ourmission' => 'Our Mission',
+        'ourvision' => 'Our Vision',
+        'philosopy' => 'Philosopy',
+        'ourteam' => 'Our Team',
+        'aryvart' => 'Aryvart',
+        'get' => 'Get a Quote',);
 
     ?>
 
@@ -155,7 +255,15 @@ function my_plugin_option(){
                             <label for="blogname"><?php _e($label); ?></label>
                         </th>
                         <td>
-                            <input id="blogname" class="regular-text" type="text" value="<?php _e(isset($service_info[$name]) ? $service_info[$name] : '');?>" name="service_info[<?php _e($name); ?>]">
+                          <?php  
+    $pages = get_pages( $args ) ;
+    echo "<select name='service_info[$name]>' ";
+    foreach ( $pages as $page ) {
+      $sel = (isset($service_info[$name]) && $page->ID == $service_info[$name]) ? 'selected' : '';
+      echo "<option $sel value='{$page->ID}'>{$page->post_title}</option>";
+    }
+    echo "</select>";
+    ?>
                         </td>
                     </tr>
                     <?php }?>
@@ -169,5 +277,18 @@ function my_plugin_option(){
 }
 function my_custom_submenu_page_callback(){
     echo "Admin Page Test"; 
+}
+ add_action('init', 'our_team');
+function our_team() {
+    $args = array(
+                'labels' =>array(
+                        'name' => 'Our Team',
+                        'add_new_item' => 'Add New Team',
+                       ),
+                'public' => true,
+                'capability_type' => 'post',
+                'supports' => array('title','editor','author','thumbnail')
+    );
+    register_post_type( 'ourteam' , $args );
 }
 
