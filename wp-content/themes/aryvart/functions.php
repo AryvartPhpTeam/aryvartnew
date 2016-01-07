@@ -214,6 +214,12 @@ function myplugin_add_custom_box() {
     );
 }
 
+add_action('admin_menu', 'page_menu');
+
+function page_menu() {
+    add_menu_page('Aryvart Options', 'What we are', 'manage_options', 'aryvartpage', 'my_plugin_option', '', 6);
+    add_submenu_page('aryvartpage', 'What we do', 'What we do', 'manage_options', 'what_we_do', 'my_custom_submenu_page_callback');
+}
 
 function my_plugin_option(){
     
