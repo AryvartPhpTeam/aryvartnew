@@ -114,48 +114,39 @@
       <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 animatedParent">
         <div class="latest-news animated bounceInRight slower">
           <p>Interested in finding out more? Click on all news for more information.</p>
-          <a href="" class="btn btn-default1">read all news</a> </div>
+          <a href="<?php _e(get_permalink(226));?>" class="btn btn-default1">read all events</a> </div>
       </div>
     </div>
     <div class="row mar-top1">
+    <?php 
+            $args = array(
+          'posts_per_page'   => 3,
+          'orderby'          => 'date',
+          'order'            => 'DESC',
+          'post_type'        => 'events',
+          'post_status'      => 'publish',
+          'suppress_filters' => true 
+        );
+      $event = get_posts($args);
+      foreach($event as $res){
+        $image = wp_get_attachment_image_src( get_post_thumbnail_id( $res->ID ), 'single-post-thumbnail' );
+      ?>
       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 mrg-10 animatedParent">
       <div class="animated bounceInLeft slow">
-        <div class="date"> <span>12</span>
+        <div class="date"> <span><?php _e(date("d",strtotime(get_post_meta( $res->ID, 'entry_post_date', true ))));?></span>
           <hr class="line">
-          <span>oct</span> </div>
+          <span><?php _e(date("M",strtotime(get_post_meta( $res->ID, 'entry_post_date', true ))));?></span> </div>
         <div class="news-events">
-       <img src="<?php echo get_template_directory_uri(); ?>/images/news.jpg" class="img-responsive n-wd"> </div>
+       <img src="<?php _e($image[0]); ?>" class="img-responsive n-wd"> </div>
         <div class="news">
-          <h3>Your website that looks great on 	all devices</h3>
-          <p>Aryvart responsive web design techniques helps you enhance your site to meet Google's responsive web design recommendations. </p>
-          <span><a href="">FIND OUT MORE >></a></span> </div>
+          <h3><?php _e($res->post_title);?></h3>
+          <p><?php _e($res->post_content);?></p>
+          <span><a href="<?php _e(get_permalink($res->ID));?>">FIND OUT MORE >></a></span> </div>
           </div>
       </div>
-      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 mrg-10 animatedParent">
-      <div class="animated bounceInUp padded">
-        <div class="date"> <span>21</span>
-          <hr class="line">
-          <span>oct</span> </div>
-        <div class="news-events"> <img src="<?php echo get_template_directory_uri(); ?>/images/news1.jpg" class="img-responsive n-wd"> </div>
-        <div class="news">
-          <h3>Your website that looks great on 	all devices</h3>
-          <p>Aryvart responsive web design techniques helps you enhance your site to meet Google's responsive web design recommendations. </p>
-          <span><a href="">FIND OUT MORE >></a></span> </div>
-          </div>
-      </div>
-      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 mrg-10 animatedParent">
-      <div class="animated bounceInRight slower">
-        <div class="date"> <span>30</span>
-          <hr class="line">
-          <span>oct</span> </div>
-        <div class="news-events"> <img src="<?php echo get_template_directory_uri(); ?>/images/news2.jpg" class="img-responsive n-wd"> </div>
-        <div class="news">
-          <h3>Your website that looks great on 	all devices</h3>
-          <p>Aryvart responsive web design techniques helps you enhance your site to meet Google's responsive web design recommendations. </p>
-          <span><a href="">FIND OUT MORE >></a></span> </div>
-      </div>
-      </div>
+      <?php } ?>
     </div>
   </div>
 </section>
 <?php get_footer(); ?>
+ 

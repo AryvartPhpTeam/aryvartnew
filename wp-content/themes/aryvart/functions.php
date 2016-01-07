@@ -70,3 +70,48 @@ function my_textbox_callback($args) {  // Textbox Callback
     $option = get_option($args[0]);
     echo '<input type="text" class="regular-text" id="'. $args[0] .'" name="'. $args[0] .'" value="' . $option . '" />';
 }
+add_action('init', 'event_register');
+
+function event_register() {
+    $args = array(
+                'labels' =>array(
+                        'name' => 'Events',
+                        'add_new_item' => 'Add New Events',
+                       ),
+
+                'public' => true,
+                'capability_type' => 'post',
+                'supports' => array('title','editor','author','comments','thumbnail')
+    );
+    register_post_type( 'events' , $args );
+}
+
+function hkdc_admin_styles() {
+    wp_enqueue_style( 'jquery-ui-datepicker-style' ,get_template_directory_uri() .'/css/jquery-ui.css');
+}
+add_action('admin_print_styles', 'hkdc_admin_styles');
+function hkdc_admin_scripts() {
+    wp_enqueue_script( 'jquery-ui-datepicker' );
+}
+add_action('admin_enqueue_scripts', 'hkdc_admin_scripts');
+function hkdc_post_date_field($post) {
+     echo '<input type="text" id="jquery-datepicker" autocomplete="off" name="entry_post_date" value="' . get_post_meta( $post->ID, 'entry_post_date', true ) . '">';
+     ?>
+    <script type="text/javascript">
+        jQuery(document).ready(function(){
+            jQuery('#jquery-datepicker').datepicker();
+        });
+    </script>
+<?php
+}
+function hkdc_post_date_meta_box() {
+    add_meta_box('entry_post_date', 'Date', 'hkdc_post_date_field', 'events', 'side', 'default');
+}
+add_action('add_meta_boxes', 'hkdc_post_date_meta_box');
+add_action('save_post','save_post_date_meta');
+function save_post_date_meta($post_id, $post)
+{
+    if(isset($_POST['entry_post_date']))
+    update_post_meta($post_id, 'entry_post_date', $_POST['entry_post_date']);
+}
+    
