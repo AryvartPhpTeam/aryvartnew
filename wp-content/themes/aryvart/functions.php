@@ -186,7 +186,9 @@ function hkdc_post_date_meta_box() {
     add_meta_box('entry_post_date', 'Date', 'hkdc_post_date_field', 'events', 'side', 'default');
 }
 add_action('add_meta_boxes', 'hkdc_post_date_meta_box');
-function save_post_date_meta($post_id, $post)
+add_action('save_post','save_post_date_meta');
+function save_post_date_meta($post)
+
 {
     if(isset($_POST['entry_post_date']))
     update_post_meta($post_id, 'entry_post_date', $_POST['entry_post_date']);
@@ -364,4 +366,37 @@ function our_team() {
     );
     register_post_type( 'ourteam' , $args );
 }
+add_action( 'init', 'create_service' );
 
+function create_service() {
+    register_taxonomy(
+        'servicecategory',
+        'crm',
+        array(
+            'label' => __( 'Service category' ),
+            'hierarchical' => true,
+        )
+    );
+    register_taxonomy(
+        'web_design',
+        'crm',
+        array(
+            'label' => __( 'Web Design' ),
+            'hierarchical' => true,
+        )
+    );
+
+}
+add_action('init', 'crm_register');
+function crm_register() {
+    $args = array(
+                'labels' =>array(
+                        'name' => 'Service provided',
+                        'add_new_item' => 'Add New Service',
+                       ),
+                'public' => true,
+                'capability_type' => 'post',
+                'supports' => array('title','editor','author','comments','thumbnail')
+    );
+    register_post_type( 'crm' , $args );
+}
