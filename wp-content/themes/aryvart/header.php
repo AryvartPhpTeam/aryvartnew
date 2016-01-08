@@ -8,7 +8,9 @@
 <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/font-awesome.css">
 <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/style.css">
-<?php wp_head() ?>
+
+<?php wp_head(); ?>
+
 <?php if(is_front_page('Home'))
 { ?>
 <!--<link href="css/animate.min.css" rel="stylesheet">-->
@@ -58,7 +60,7 @@
   </div>
   <!-- /.carousel --> 
 </div>
-<div class="header-bar hidden-xs">
+<div class="header-bar hidden-xs" style="position:relative; height:600px;">
   <div class="container">
     <div class="row icon-hide">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 touch">
@@ -129,6 +131,17 @@ else if(is_page('who-we-are')) { ?>
   <div class="container">
   <?php } 
   else if(is_page('what-we-do')) { ?>
+  <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/font-awesome.css">
+<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/bootstrap.css">
+<link href="<?php echo get_template_directory_uri(); ?>/css/animate.min.css" rel="stylesheet">
+<link href="<?php echo get_template_directory_uri(); ?>/css/demo.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/responsive.css">
+</head>
+<body>
+<div class="header-bar10 hidden-xs">
+  <div class="container">
+  <?php }
+  else if(is_page('web-design')) { ?>
   <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/font-awesome.css">
 <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/bootstrap.css">
 <link href="<?php echo get_template_directory_uri(); ?>/css/animate.min.css" rel="stylesheet">
