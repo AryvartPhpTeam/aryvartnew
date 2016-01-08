@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: contact
+Template Name: careers
 */
 get_header();
 ?>
