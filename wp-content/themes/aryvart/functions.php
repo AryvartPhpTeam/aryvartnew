@@ -186,34 +186,107 @@ function hkdc_post_date_meta_box() {
     add_meta_box('entry_post_date', 'Date', 'hkdc_post_date_field', 'events', 'side', 'default');
 }
 add_action('add_meta_boxes', 'hkdc_post_date_meta_box');
-add_action('save_post','save_post_date_meta');
 function save_post_date_meta($post_id, $post)
 {
     if(isset($_POST['entry_post_date']))
     update_post_meta($post_id, 'entry_post_date', $_POST['entry_post_date']);
 }
-    
-
 add_action('admin_menu', 'aryvart_menu');
 
 function aryvart_menu() {
-    add_menu_page('Aryvart Options', 'Aryvart Options', 'manage_options', 'aryvart', 'my_plugin_option', '', 6);
-    add_submenu_page('aryvart', 'Aryvart Contact', 'Aryvart Contact', 'manage_options', 'aryvart_contact', 'my_custom_submenu_page_callback');
+    add_menu_page('Aryvart Options', 'Aryvart Options', 'manage_options', 'aryvart', 'my_plugin_option1', '', 6);
+    add_submenu_page('aryvart', 'Aryvart Contact', 'Aryvart Contact', 'manage_options', 'aryvart_contact', 'my_custom_submenu_callback');
 }
 
+function my_plugin_option1(){
+    
+    if(isset($_POST['submit']))
+    {
+        update_option('service_info', $_POST['service_info']);
+    }
 
-add_action( 'add_meta_boxes', 'myplugin_add_custom_box' );
+    $service_info = get_option('service_info');
+   
+    $fields = array(
+        'successful_years' => 'Successful Years',
+        'developers' => 'Developers & UI Engineers',
+        'successful_products' => 'Successful Mobile & Web Products',
+        'satisfaction' => 'Customer Satisfaction',
+        'ourservice' => 'Our Service',
+        'ourclient' => 'Our Client',
+        'whatwedo' => 'What We Do');
 
-/* Adds a box to the main column on the Post edit screens */
-function myplugin_add_custom_box() {
-    add_meta_box( 
-        'myplugin_sectionid',
-        __( 'My Post Section Title', 'myplugin_textdomain' ),
-        'myplugin_inner_custom_box',
-        'post' 
-    );
+    ?>
+
+    <div class="wrap">
+        <h1>General Settings</h1>
+        <form novalidate="novalidate" method="post">
+            <table class="form-table">
+                <tbody>
+                    <?php foreach($fields as $name=>$label){?>
+                    <tr>
+                        <th scope="row">
+                            <label for="blogname"><?php _e($label); ?></label>
+                        </th>
+                        <td>
+                            <input id="blogname" class="regular-text" type="text" value="<?php _e(isset($service_info[$name]) ? $service_info[$name] : '');?>" name="service_info[<?php _e($name); ?>]">
+                        </td>
+                    </tr>
+                    <?php }?>
+                </tbody>
+            </table>
+            <?php submit_button();?>
+        </form>
+    </div>
+
+    <?php
 }
+function my_custom_submenu_callback(){
+    
+    if(isset($_POST['submit']))
+    {
+        update_option('service_info', $_POST['service_info']);
+    }
 
+    $service_info = get_option('service_info');
+   
+    $fields = array(
+        'country' => 'Country',
+        'country_address' => 'Country Address',
+        'country2' => 'Country2',
+        'country_address2' => 'Country Address2',
+        'personal_number' => 'Personal Number',
+        'office_number' => 'Office Number',
+        'fax' => 'Fax',
+        'mail' => 'Mail',
+        'mail2' => 'Mail2',
+        'enquiry'=>'Enquiry');
+
+    ?>
+
+    <div class="wrap">
+        <h1>General Settings</h1>
+        <form novalidate="novalidate" method="post">
+            <table class="form-table">
+                <tbody>
+                    <?php foreach($fields as $name=>$label){?>
+                    <tr>
+                        <th scope="row">
+                            <label for="blogname"><?php _e($label); ?></label>
+                        </th>
+                        <td>
+                            <input id="blogname" class="regular-text" type="text" value="<?php _e(isset($service_info[$name]) ? $service_info[$name] : '');?>" name="service_info[<?php _e($name); ?>]">
+                        </td>
+                    </tr>
+                    <?php }?>
+                </tbody>
+            </table>
+            <?php submit_button();?>
+        </form>
+    </div>
+
+    <?php
+}   
 add_action('admin_menu', 'page_menu');
 
 function page_menu() {
