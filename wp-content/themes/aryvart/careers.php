@@ -4,87 +4,119 @@ Template Name: careers
 */
 get_header();
 ?>
-<section class="contact=block">
+ <section class="blog-block clearfix">
     <div class="container">
       <div class="row">
-        <div class="col-lg-7 col-md-7 col-sm-6 col-xs-12">
-          <div class="col-lg-7 col-md-7 col-sm-2 col-xs-12">
-            <div class="clearfix"></div>
-          </div>
-          <div class="col-lg-5 col-md-5 col-sm-10 col-xs-12">
-            <div class="contact-add1">
-              <?php $service_info = get_option('service_info');?>
-              <h3><?php _e($service_info['country']); ?></h3>
-              <p><?php _e($service_info['country_address']); ?></p>
-              
+      <div class="blog">
+      <?php $service_info = get_option('service_info'); ?>
+      <h1><?php _e(get_the_title($service_info['careers'])); ?></h1>
+      <hr class="blog-bor">
+      <p><?php _e(get_post($service_info['careers'])->post_content); ?></p>
+       </div>
+       </div>
+    </div>
+  </section>
+</div> <!-- end header-->
+<section class="career">
+  <div class="container">
+      <p><?php _e(get_post($service_info['modal'])->post_content); ?></p>
+      <p><b><?php _e(get_post($service_info['lorem_ipsum'])->post_content); ?> </b></p>    
+  </div>
+</section>
+<section class="opening">
+  <div class="container">
+    <div class="row">  
+    <div class="life">
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 padrgt0">            
+            <ul id="nav-tabs-wrapper" class="nav nav-tabs nav-pills nav-stacked well">
+              <li class="open"><a href="#vtab1" data-toggle="tab"><img src="<?php echo get_template_directory_uri(); ?>/images/opening.png"> Current Openings</a></li>
+              <li class="live"><a href="#vtab2" data-toggle="tab"><img src="<?php echo get_template_directory_uri(); ?>/images/life.png"> <?php _e(get_the_title($service_info['life'])); ?></a></li>
+              <li class="fun"><a href="#vtab3" data-toggle="tab"><img src="<?php echo get_template_directory_uri(); ?>/images/fun.png"> <?php _e(get_the_title($service_info['fun'])); ?></a></li>
+              <li class="join"><a href="#vtab4" data-toggle="tab"><img src="<?php echo get_template_directory_uri(); ?>/images/join.png"> Join Aryvart Family</a></li>
+            </ul>
+        </div>
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 padlft0">
+            <div class="tab-content clearfix">
+
+                <div role="tabpanel" class="tab-pane fade in active" id="vtab1">
+                    <div class="opening-ary clearfix">
+                      <?php 
+                      $open = get_posts(array('posts_per_page'   => -1, 'post_type' => 'opening'));
+      $classs = array(' padrgt10', 'padlft0 padrgt10', 'padlft0 padrgt10', 'padrgt10', 'padlft0 padrgt10', 'padlft0 padrgt10');
+       $class_index = 0;
+      foreach($open as $res){
+        $image = wp_get_attachment_image_src( get_post_thumbnail_id( $res->ID ), 'single-post-thumbnail' );
+        ?>
+                      <div class="col-md-4 <?php _e($classs[$class_index]);?>">
+                        <div class="open-web" data-toggle="modal" data-target="#<?php _e($res->ID);?>">
+                          <a href="#"><img src="<?php _e($image[0]); ?>" class="img-responsive"><?php _e($res->post_title);?>
+                        </a></div>
+                      </div>
+                    
+                    <?php $class_index++;  } ?>
+                  </div>                  
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="vtab2">
+                    <div class="fun-ary">
+                    <?php _e(get_the_post_thumbnail($service_info['life'],'full', array( 'class' => 'img-responsive' ))); ?>
+                   </div>
+                </div>
+                <div role="tabpanel" class="tab-pane fade in" id="vtab3">
+                   <div class="fun-ary">
+                    <?php _e(get_the_post_thumbnail($service_info['fun'],'full', array( 'class' => 'img-responsive' ))); ?>
+                   </div>
+                </div>
+                <div role="tabpanel" class="tab-pane fade in" id="vtab4">
+                   <div class="join-form clearfix">
+                      <?php _e(do_shortcode('[contact-form-7 id="171" title="Join Aryvart Family"]')); ?>
+                   </div>
+                </div>
             </div>
-          </div>
         </div>
-       
-        <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
-          <div class="clearfix"></div>
+        <div class="container">
+  <div class="container">
+  <h2><?php _e(get_the_title($service_info['modal'])); ?></h2>
+  <!-- Trigger the modal with a button -->
+
+
+  <!-- Modal -->
+  <?php foreach($open as $res) { ?>
+  <div class="modal fade" id="<?php _e($res->ID); ?>" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"><?php _e($res->post_title);?></h4>
         </div>
-         </div>
-        <div class="row">
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-        <div class="clearfix"></div>
+        <div class="modal-body">
+        <?php _e($res->post_content);?>
         </div>
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-         <div class="col-lg-2 col-md-2 col-xs-12">
-             <div class="clearfix"></div>
-          </div>
-         <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-         <div class="contact-add1">
-              <h3><?php _e($service_info['country2']); ?></h3>
-              <p> <?php _e($service_info['country_address2']); ?></p>
-            </div>
-           
-          </div>
-          
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
+      
     </div>
-    
-  </section>
+  </div>
+  <?php } ?>
+
   
 </div>
-<section class="contact-block1">
-<div class="container">
-<div class="row">
-<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 contact-add">
-<div class="cont-details">
-<img src="<?php echo get_template_directory_uri(); ?>/images/mobile.png">
+
+  
 </div>
-<p>Personal : <?php _e($service_info['personal_number']); ?><br>
-Office :<?php _e($service_info['office_number']); ?></p>
-</div>
-<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 contact-add">
-<div class="cont-details">
-<img src="<?php echo get_template_directory_uri(); ?>/images/print.png">
-</div>
-<p>Fax :<?php _e($service_info['fax']); ?></p>
-</div>
-<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 contact-add">
-<div class="cont-details">
-<img src="<?php echo get_template_directory_uri(); ?>/images/message.png">
-</div>
-<p><?php _e($service_info['mail']); ?><br>
-<?php _e($service_info['mail2']); ?></p>
-</div>
-</div>
-<hr>
-</div>
+        </div>    
+      </div>
+  </div>
 </section>
-<section>
-<div class="container">
-<div class="row">
-<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center enquiry">
-<h2>Have an Enquiry?</h2>
-<p><?php _e($service_info['enquiry']); ?></p>
-</div>
- <?php _e(do_shortcode('[contact-form-7 id="136" title="contact"]')); ?>
-</div>
+<section class="career">
+  <div class="container">
+      <p><?php _e(get_post($service_info['modal'])->post_content); ?></p>
+  </div>
 </section>
+<!-- header-bar -->
 
 <!-- header-bar -->
 <?PHP get_footer();?>
