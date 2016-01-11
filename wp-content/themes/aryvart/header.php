@@ -111,7 +111,7 @@
 <?php }
 /*<!-- header-bar -->*/
 else if(is_page( 'how-it-work') ){ ?>
-  <link href="<?php echo get_template_directory_uri(); ?>/css/animate.min.css" rel="stylesheet">
+<link href="<?php echo get_template_directory_uri(); ?>/css/animate.min.css" rel="stylesheet">
 <link href="<?php echo get_template_directory_uri(); ?>/css/demo.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/responsive.css">
 </head>
@@ -170,7 +170,7 @@ else if(is_page('who-we-are')) { ?>
 <div class="header-bar2 hidden-xs">
   <div class="container">
   <?php }
-  else if(is_page('partner' )) { ?>
+  else if(is_page('partners' )) { ?>
   <link href="<?php echo get_template_directory_uri(); ?>/css/animate.min.css" rel="stylesheet">
 <link href="<?php echo get_template_directory_uri(); ?>/css/demo.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/responsive.css">
