@@ -46,11 +46,20 @@ function check_size(){
 
 	
 $("#filter-all").click(function() { $container.isotope({ filter: '.all' }); button = 1; check_button(); });
-$("#filter-design").click(function() {  $container.isotope({ filter: '.design' }); button = 2; check_button();  });
+$("#filter-web-designing").click(function() {  $container.isotope({ filter: '.web-designing' }); button = 2; check_button();  });
 $("#filter-branding").click(function() {  $container.isotope({ filter: '.branding' }); button = 3; check_button();  });
 $("#filter-development").click(function() {  $container.isotope({ filter: '.development' }); button = 4; check_button();  });
 $("#gallery-header-center-left-icon").click(function() { if(size==0){size=1;}else if(size==1){size=0;} check_size(); });
 
+$(".lgallery-header-center-right-links").click(function() { 
+	
+	$id = $(this).attr("id").split("-")[1];
+	console.log($id);
+	$ind = $(this).index() + 1;
+	$container.isotope({ filter: '.taxonomy9' }); 
+	$('.gallery-header-center-right-links').removeClass(button_class);
+	$(this).addClass(button_class);
+});
 
 check_button();
 check_size();

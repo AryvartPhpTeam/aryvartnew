@@ -26,7 +26,7 @@ define('DB_NAME', 'aryvartnew');
 define('DB_USER', 'root');
 
 /** MySQL database password */
-define('DB_PASSWORD', '123');
+define('DB_PASSWORD', '');
 
 /** MySQL hostname */
 define('DB_HOST', 'localhost');
