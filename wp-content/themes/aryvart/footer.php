@@ -1,5 +1,5 @@
 <div class="footer-bar">
-  <div class="container">
+<div class="container">
     <div class="row mar-top1">   
       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
         <div class="foot">
@@ -58,7 +58,7 @@
   </div>
 </footer>
 <a href="#" class="scrollup" style="display: none;">Scroll</a>
-</body>
+
 <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.min.js"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/bootstrap.js"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/css3-animate-it.js"></script>
@@ -72,7 +72,45 @@ $(document).ready(function(){
     if($(window).scrollTop() < 250)
       $(".animated ").removeClass("go");
   });
+
+if($(".sidebar_blog").length)
+  {
+    $(".sidebar_blog h1.recent").each(function(){
+
+      $txt = $(this).text().split(" ");
+      $txt[0] = "<span>"+$txt[0]+"</span>";
+      $txt.join(" ");
+
+      $(this).html($txt);
+
+    });
+
+    $("h1.recent+ul").addClass("standard");
+
+    $(".widget_tag_cloud .tagcloud a").addClass("btn btn-default3");
+  }
+
 });
+</script>
+<script type="text/javascript" src="<?php echo get_template_directory_uri();?>/js/jquery.isotope.min.js"></script>
+<script type="text/javascript" src="<?php echo get_template_directory_uri();?>/js/animated-masonry-gallery.js"></script>
+
+        <script src="<?php echo get_template_directory_uri();?>/js/bootstrap.lightbox.js"></script>
+        <script>
+// Load code prettifier
+$(document).ready(function(){
+  //prettyPrint();
+});
+
+// Fancy text animation
+var ta = (function(a){
+  var a = $(a), b = a.text(), c = b.length, d = 200;
+  a.empty()
+  for(i=0;i<c;++i){
+    a.append($("<span/>").text(b[i]).fadeIn(1300+(d*i)));
+  }
+})("header p");
+$("abbr[data-toggle=tooltip]").tooltip();
 </script>
 <?php wp_footer() ?>
 </html>

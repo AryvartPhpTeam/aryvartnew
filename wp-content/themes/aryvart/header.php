@@ -108,10 +108,10 @@
     </div>
   </section>
 </div>
-<?php }
+<?php }else{
 /*<!-- header-bar -->*/
 else if(is_page( 'how-it-works') ){ ?>
-  <link href="<?php echo get_template_directory_uri(); ?>/css/animate.min.css" rel="stylesheet">
+   <link href="<?php echo get_template_directory_uri(); ?>/css/animate.min.css" rel="stylesheet">
 <link href="<?php echo get_template_directory_uri(); ?>/css/demo.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/responsive.css">
 </head>
@@ -170,12 +170,14 @@ else if(is_page('who-we-are')) { ?>
 <div class="header-bar2 hidden-xs">
   <div class="container">
   <?php }
-  else if(is_page('events')) { ?>
+  else if(is_taxonomy('post_tag')) { ?>
+
   <link href="<?php echo get_template_directory_uri(); ?>/css/animate.min.css" rel="stylesheet">
 <link href="<?php echo get_template_directory_uri(); ?>/css/demo.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/responsive.css">
 </head>
 <body>
+
 <div class="header-bar7 hidden-xs">
   <div class="container">
   <?php }
@@ -185,8 +187,21 @@ else if(is_page('who-we-are')) { ?>
 <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/responsive.css">
 </head>
 <body>
-<div class="header-bar7 hidden-xs">
+<div class="blog-bg2 hidden-xs">
   <div class="container">
+  <?php }
+  else if(is_singular('blog')) { ?>
+  <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri();?>/css/font-awesome.css">
+<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri();?>/css/bootstrap.css">
+<link href="<?php echo get_template_directory_uri();?>/css/animate.min.css" rel="stylesheet">
+<link href="<?php echo get_template_directory_uri();?>/css/demo.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri();?>/css/style.css">
+<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri();?>/css/responsive.css">
+</head>
+<body>
+  <div class="blog-bg2 hidden-xs">
+  <div class="container">
+
   <?php }
   else if(is_page('partners' )) { ?>
   <link href="<?php echo get_template_directory_uri(); ?>/css/animate.min.css" rel="stylesheet">
@@ -254,4 +269,5 @@ else if(is_page('who-we-are')) { ?>
       </div>
     </div>
   </header>
+  <?php } ?>
   

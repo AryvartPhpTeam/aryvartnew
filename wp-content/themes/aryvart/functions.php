@@ -21,7 +21,8 @@ function my_general_section() {
         'my_settings_section', // Name of our section
         array( // The $args
             'address' // Should match Option ID
-        )  
+        )    
+
     ); 
     add_settings_field( // Option 3
         'state', // Option ID
@@ -49,8 +50,7 @@ function my_general_section() {
         'my_textbox_callback', // !important - This is where the args go!
         'general', // Page it will be displayed
         'my_settings_section', // Name of our section (General Settings)
-        array( // The $args
-            'email' // Should match Option ID
+        array( // The $args            'email' // Should match Option ID
         )  
     ); 
     add_settings_field( // Option 5
@@ -152,6 +152,7 @@ function event_register() {
     );
     register_post_type( 'events' , $args );
 }
+
 add_action('init', 'partner_register');
 
 function partner_register() {
@@ -177,6 +178,7 @@ function footer_image() {
     register_post_type( 'footer' , $args );
 }
 
+
 function hkdc_admin_styles() {
     wp_enqueue_style( 'jquery-ui-datepicker-style' ,get_template_directory_uri() .'/css/jquery-ui.css');
 }
@@ -196,7 +198,9 @@ function hkdc_post_date_field($post) {
 <?php
 }
 function hkdc_post_date_meta_box() {
-    add_meta_box('entry_post_date', 'Date', 'hkdc_post_date_field', 'events', 'normal', 'default');
+
+    add_meta_box('entry_post_date', 'Event Date', 'hkdc_post_date_field', 'events', 'normal', 'default');
+
 }
 add_action('add_meta_boxes', 'hkdc_post_date_meta_box');
 add_action('save_post','save_post_date_meta');
@@ -206,6 +210,22 @@ function save_post_date_meta($post_id)
     if(isset($_POST['entry_post_date']))
     update_post_meta($post_id, 'entry_post_date', $_POST['entry_post_date']);
 }
+
+add_action('init', 'footer_image');
+function footer_image() {
+    $args = array(
+                'labels' =>array(
+                        'name' => 'Footer',
+                        'add_new_item' => 'Add footer',
+                       )
+                
+                
+                );
+
+    register_post_type( 'footer' , $args );
+}
+
+
 add_action('admin_menu', 'aryvart_menu');
 
 function aryvart_menu() {
@@ -279,6 +299,7 @@ function my_custom_submenu_callback(){
 
     ?>
 
+
     <div class="wrap">
         <h1>General Settings</h1>
         <form novalidate="novalidate" method="post">
@@ -302,6 +323,9 @@ function my_custom_submenu_callback(){
 
     <?php
 }   
+
+
+
 add_action('admin_menu', 'page_menu');
 
 function page_menu() {
@@ -476,6 +500,7 @@ function our_team() {
     register_post_type( 'ourteam' , $args );
 }
 
+
 add_action( 'init', 'create_service' );
 
 function create_service() {
@@ -547,3 +572,107 @@ function crm_register() {
     );
     register_post_type( 'crm' , $args );
 }
+
+add_action('init', 'gallery');
+
+function gallery() {
+    $args = array(
+                'labels' =>array(
+                        'name' => 'gallery',
+                        'add_new_item' => 'Add New gallery',
+                       ),
+                'public' => true,
+                'capability_type' => 'post',
+                'supports' => array('title','editor','author','comments','thumbnail')
+    );
+    register_post_type( 'gallery' , $args );
+}
+add_action( 'init', 'create_book_tax' );
+
+function create_book_tax() {
+    register_taxonomy(
+        'gallerytitle',
+        'gallery',
+        array(
+            'label' => __( 'gallery title' ),
+            //'rewrite' => array( 'slug' => 'genre' ),
+            'hierarchical' => true,
+        )
+    );
+    
+}
+add_action('init', 'blog');
+
+function blog() {
+    $args = array(
+                'labels' =>array(
+                        'name' => 'Blog',
+                        'add_new_item' => 'Add New blog',
+                       ),
+                'public' => true,
+                'capability_type' => 'post',
+                'supports' => array('title','editor','tags','author','comments','thumbnail'),
+                'taxonomies' => array('post_tag')
+    );
+    register_post_type( 'blog' , $args );
+}
+add_action( 'init', 'create_book_tax1' );
+
+function create_book_tax1() {
+    register_taxonomy(
+        'blogcategory',
+        'blog',
+        array(
+            'label' => __( 'Blog category' ),
+            //'rewrite' => array( 'slug' => 'genre' ),
+            'hierarchical' => true,
+
+        )
+    );
+    register_taxonomy(
+        'blogtags',
+        'blog',
+        array(
+            'label' => __( 'Blog tags' ),
+            //'rewrite' => array( 'slug' => 'genre' ),
+            'hierarchical' => true,
+
+        )
+    );
+    
+}
+add_action('admin_enqueue_scripts', 'hkdc_admin_scripts');
+function hkdc_post_month_field($post) {
+     echo '<input type="text" id="jquery-datepicker" autocomplete="off" name="entry_post_month" value="' . get_post_meta( $post->ID, 'entry_post_month', true ) . '">';
+     ?>
+    <script type="text/javascript">
+        jQuery(document).ready(function(){
+            jQuery('#jquery-datepicker').datepicker();
+        });
+    </script>
+<?php
+}
+function hkdc_post_month_meta_box() {
+    add_meta_box('entry_post_month', 'Blog Date', 'hkdc_post_month_field', 'blog', 'normal', 'default');
+}
+add_action('add_meta_boxes', 'hkdc_post_month_meta_box');
+add_action('save_post','save_post_month_meta');
+function save_post_month_meta($post_id)
+{
+    if(isset($_POST['entry_post_month']))
+    update_post_meta($post_id, 'entry_post_month', $_POST['entry_post_month']);
+}
+
+ 
+register_sidebars(1, array(
+    'description'   => '',
+    'class'         => 'standard',
+    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<h1 class="recent">',
+    'after_title'   => '</h1>'
+    ));
+
+if(isset($_GET['tag']))
+$_GET['post_type']='blog';
+

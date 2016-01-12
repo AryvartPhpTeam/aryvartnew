@@ -1,5 +1,6 @@
 
 # BEGIN WordPress
+<<<<<<< HEAD
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteBase /aryvartnew/
@@ -8,5 +9,7 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /aryvartnew/index.php [L]
 </IfModule>
+=======
+>>>>>>> c085566... fix #11 Gallery page Integration
 
 # END WordPress

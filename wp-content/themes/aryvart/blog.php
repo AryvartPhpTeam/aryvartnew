@@ -20,68 +20,74 @@ Template Name: Blog
 </div>
 <section class="blog-block1">
   <div class="container">
-    <div class="row"> 
-    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 padd-rgt">
-    <img src="<?php echo get_template_directory_uri(); ?>/images/blog-post.jpg" class="img-responsive">
+     
+    <?php 
+            $args = array(
+          'posts_per_page'   => 4,
+          'orderby'          => 'date',
+          'order'            => 'DESC',
+          'post_type'        => 'blog',
+          'post_status'      => 'publish',
+          'suppress_filters' => true 
+        );
+           
+        $class=array('padd-rgt',' padd-lft','padd-rgt',' padd-lft');
+        $class_index = 0;
+        $event = get_posts($args);
+        $i=1;
+        foreach($event as $res){
+      if($i%2 != 0) {
+     $image = wp_get_attachment_image_src( get_post_thumbnail_id( $res->ID ), 'single-post-thumbnail' );?>
+   <div class="row"> 
+   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 <?php _e($class[$class_index]);?> ">
+    <img src="<?php _e($image[0]);?>" class="img-responsive">
     </div>
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
     <div class="post-details">
-    <div class="date-blog"><span>16</span><hr><span>Nov 2015</span></div>
-    <h4><i class="fa fa-folder-open-o"></i> &nbsp; &nbsp; Web Design, Graphic, Art,  Branding</h4>
-    <h3>You can get some very remarkable benefits of having ecommerce website.</h3>
-    <p>E-Commerce web site design includes buying and selling of products or services on internet from your website, not only in Paris it is from anywhere in the world.</p>
-    <a href="blog-inner.html" class="btn btn-default2">Read More</a>
+     <div class="date-blog"><span><?php _e(date("d",strtotime(get_post_meta( $res->ID, 'entry_post_month', true ))));?></span><hr><span><?php _e(date("M",strtotime(get_post_meta( $res->ID, 'entry_post_month', true ))));?></span></div>
+    <?php $taxonomy='blogcategory';
+        $term=wp_get_post_terms($res->ID, $taxonomy, array("fields" => "names"));
+    ?>
+    <h4><i class="fa fa-folder-open-o"></i> &nbsp; &nbsp; <?php echo (implode(',',$term));?></h4>
+   
+
+    <h3><?php _e($res->post_title);?></h3>
+    
+    <p><?php _e(wp_trim_words($res->post_content,20));?></p>
+    <a href="<?php _e(get_permalink($res->ID));?>" class="btn btn-default2">Read More</a>
     </div>
     </div>
     </div>
+     <?php $class[$class_index]++; } 
+     else{
+      $term=wp_get_post_terms($res->ID, $taxonomy, array("fields" => "names"));
+       $image = wp_get_attachment_image_src( get_post_thumbnail_id( $res->ID ), 'single-post-thumbnail' );
+      ?>
     <div class="row"> 
-    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 <?php _e($class[$class_index]);?>">
     <div class="post-details">
-    <div class="date-blog"><span>21</span><hr><span>Nov 2015</span></div>
-    <h4><i class="fa fa-folder-open-o"></i> &nbsp; &nbsp; Web Design, Graphic, Art,  Branding</h4>
-    <h3>Lorem Ipsum is simply dummy text of the print</h3>
-    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution</p>
-    <a href="blog-inner.html" class="btn btn-default2">Read More</a>
+    <div class="date-blog"><span><?php _e(date("d",strtotime(get_post_meta( $res->ID, 'entry_post_month', true ))));?></span><hr><span><?php _e(date("M",strtotime(get_post_meta( $res->ID, 'entry_post_month', true ))));?></span></div>
+    <h4><i class="fa fa-folder-open-o"></i> &nbsp; &nbsp; <?php echo (implode(',',$term));?></h4>
+    <h3><?php _e($res->post_title);?></h3>
+    <p><?php _e(wp_trim_words($res->post_content,20));?></p>
+    <a href="<?php _e(get_permalink($res->ID));?>" class="btn btn-default2">Read More</a>
     </div>
     </div>
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 padd-lft">
-    <img src="<?php echo get_template_directory_uri(); ?>/images/blog-post1.jpg" class="img-responsive">
+    <img src="<?php _e($image[0]);?>" class="img-responsive">
     </div>
+    <?php 
+     $class[$class_index]++;}$i++;}?>
     </div>
-    <div class="row">
-    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 padd-rgt">
-    <img src="<?php echo get_template_directory_uri(); ?>/images/blog-post2.jpg" class="img-responsive">
-    </div> 
-    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-    <div class="post-details">
-    <div class="date-blog"><span>16</span><hr><span>Oct  2015</span></div>
-    <h4><i class="fa fa-folder-open-o"></i> &nbsp; &nbsp; Web Design, Graphic, Art,  Branding</h4>
-    <h3>Your website that looks great on all devices</h3>
-    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia</p>
-    <a href="blog-inner.html" class="btn btn-default2">Read More</a>
+    
     </div>
-    </div>
-    </div>
-    <div class="row"> 
-    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-    <div class="post-details">
-    <div class="date-blog"><span>21</span><hr><span>Oct  2015</span></div>
-    <h4><i class="fa fa-folder-open-o"></i> &nbsp; &nbsp; Web Design, Graphic, Art,  Branding</h4>
-    <h3>Lorem Ipsum is simply dummy text of the printing and typesetting industry</h3>
-    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. </p>
-    <a href="blog-inner.html" class="btn btn-default2">Read More</a>
-    </div>
-    </div>
-    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 padd-lft">
-    <img src="<?php echo get_template_directory_uri(); ?>/images/blog-post3.jpg" class="img-responsive">
-    </div>
-    </div>
-    </div>
+
     </div>
     <!-- row -->
   </div>
   <!-- container -->
 </section>
+
 <section class="blog-bolck2">
 <div class="container">
 <div class="row">
