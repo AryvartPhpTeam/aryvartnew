@@ -110,8 +110,8 @@
 </div>
 <?php }
 /*<!-- header-bar -->*/
-else if(is_page( 'how-it-work') ){ ?>
-<link href="<?php echo get_template_directory_uri(); ?>/css/animate.min.css" rel="stylesheet">
+else if(is_page( 'how-it-works') ){ ?>
+  <link href="<?php echo get_template_directory_uri(); ?>/css/animate.min.css" rel="stylesheet">
 <link href="<?php echo get_template_directory_uri(); ?>/css/demo.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/responsive.css">
 </head>
@@ -152,7 +152,7 @@ else if(is_page('who-we-are')) { ?>
 <div class="header-bar10 hidden-xs">
   <div class="container">
   <?php }
-  else if(is_page('portfolio')) { ?>
+  else if(is_page('portifolio')) { ?>
   <link href="<?php echo get_template_directory_uri(); ?>/css/animated-masonry-gallery.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/responsive.css">
 <link href="<?php echo get_template_directory_uri(); ?>/css/bootstrap.lightbox.css" rel="stylesheet" media="screen">
@@ -168,6 +168,24 @@ else if(is_page('who-we-are')) { ?>
 </head>
 <body>
 <div class="header-bar2 hidden-xs">
+  <div class="container">
+  <?php }
+  else if(is_page('events')) { ?>
+  <link href="<?php echo get_template_directory_uri(); ?>/css/animate.min.css" rel="stylesheet">
+<link href="<?php echo get_template_directory_uri(); ?>/css/demo.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/responsive.css">
+</head>
+<body>
+<div class="header-bar7 hidden-xs">
+  <div class="container">
+  <?php }
+  else if(is_singular('events')) { ?>
+  <link href="<?php echo get_template_directory_uri(); ?>/css/animate.min.css" rel="stylesheet">
+<link href="<?php echo get_template_directory_uri(); ?>/css/demo.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/responsive.css">
+</head>
+<body>
+<div class="header-bar7 hidden-xs">
   <div class="container">
   <?php }
   else if(is_page('partners' )) { ?>
