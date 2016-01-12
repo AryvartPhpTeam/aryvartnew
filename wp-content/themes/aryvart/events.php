@@ -1,8 +1,20 @@
 <?php
-/* Template Name: Events Template */
+/* Template Name: Events */
 
 get_header(); 
 ?>
+<section class="blog-block clearfix">
+    <div class="container">
+      <div class="row">
+      <div class="blog">
+      <h1>ALL EVENTS</h1>
+      <hr class="partner-bor">
+      <p>Contrary to popular belief, Lorem Ipsum is not simply random text.</p>
+       </div>
+       </div>
+    </div>
+  </section>
+</div>
 <div class="row mar-top1">
     <?php 
       $args = array(
@@ -26,7 +38,7 @@ get_header();
        <img src="<?php _e($image[0]); ?>" class="img-responsive n-wd"> </div>
         <div class="news">
           <h3><?php _e($res->post_title);?></h3>
-          <p><?php _e($res->post_content);?></p>
+          <p><?php _e(wp_trim_words($res->post_content,17));?></p>
           <span><a href="<?php _e(get_permalink($res->ID));?>">FIND OUT MORE >></a></span> </div>
           </div>
       </div>
