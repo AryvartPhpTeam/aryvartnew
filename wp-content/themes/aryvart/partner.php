@@ -21,171 +21,31 @@ Template Name: Partner
 </div>
 
 <div class="container">
-<h1 class="partner text-center">Become A Partner</h1>
-<p class="partner1 text-center">ARYVART has built strong partner relationships with many companies in order to provide the right solution for our valuable clients. We utilize these partnerships to keep our processes and knowledge at the highest level, which allow ARYVART to propose the proper decisions with our clients for their business needs.</div>
+<?php $post=get_post(305); ?>
+<h1 class="partner text-center"><?php _e($post->post_title);?></h1>
+<p class="partner1 text-center"><?php _e($post->post_content);?></p></div>
 <div class="container">
 <div class="row">
-<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 partner3 part">
-<h1>Revenue Oppurtunities:</h1>
-<ul><li class="partner4">
-<i class="fa fa-check"></i><span>&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span></li>
-<li class="partner4"><i class="fa fa-check"></i><span>&nbsp;Lorem ipsum dolor sit alquim.</span></li>
-<li class="partner4"><i class="fa fa-check"></i><span>&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span></li>
-<li class="partner4"><i class="fa fa-check"></i><span>&nbsp;Lorem ipsum dolor sit alquim.</span></li>
-
-
+<?php 
+      $partner = get_posts(array('post_type' => 'partner'));
+      $classs = array('part','part1','part','part2');
+      $class_index = 0;
+      foreach($partner as $res){
+        
+      ?>
+<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 partner3 <?php _e($classs[$class_index]);?>">
+<h1><?php _e($res->post_title)?></h1>
+<ul><?php _e($res->post_content)?></ul>
 </div>
-<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 partner3  part1">
-<h1>Benefits:</h1>
-<ul><li class="partner4">
-<i class="fa fa-check"></i><span>&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span></li>
-<li class="partner4"><i class="fa fa-check"></i><span>&nbsp;Lorem ipsum dolor sit alquim.</span></li>
-<li class="partner4"><i class="fa fa-check"></i><span>&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span></li>
-<li class="partner4"><i class="fa fa-check"></i><span>&nbsp;Lorem ipsum dolor sit alquim.</span></li>
-
-
-</div>
-
-
-</div>
-</div>
-<div class="container">
-<div class="row">
-<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 partner3  part">
-<h1>What Aryvart provides?</h1>
-<ul><li class="partner4">
-<i class="fa fa-check"></i><span>&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span></li>
-<li  class="partner4"><i class="fa fa-check"></i><span>&nbsp;Lorem ipsum dolor sit alquim.</span></li>
-<li  class="partner4"><i class="fa fa-check"></i><span>&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span></li>
-<li  class="partner4"><i class="fa fa-check"></i><span>&nbsp;Lorem ipsum dolor sit alquim.</span></li>
-
-
-</div>
-<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 partner3  part2">
-<h1>Who can become Aryvart partner?</h1>
-<ul><li class="partner4">
-<i class="fa fa-check"></i><span>&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span></li>
-<li  class="partner4"><i class="fa fa-check"></i><span>&nbsp;Lorem ipsum dolor sit alquim.</span></li>
-<li  class="partner4"><i class="fa fa-check"></i><span>&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span></li>
-<li  class="partner4"><i class="fa fa-check"></i><span>&nbsp;Lorem ipsum dolor sit alquim.</span></li>
-
-
-</div>
-
+<?php $class_index++; }  ?>  
 </div>
 </div>
 <div class="container partner3">
 <div class="row">
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 partner3 part3">
 <h1>Partner Form:</h1></div></div></div>
-<div class="container">
-<div class="row">
-<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 partner3">
-  <form role="form">
-    <div class="form-group">
-      <input type="email" class="form-control" id="email" placeholder="Company Name*">
-    </div>
-    
-  </form>
-</div>
-<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 partner3">
-  <form role="form">
-    <div class="form-group">
-      <input type="email" class="form-control" id="email" placeholder="Country*">
-    </div>
-    
-  </form>
-</div>
-
-</div>
-</div>
-<div class="container">
-<div class="row">
-<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 partner3">
-  <form role="form">
-    <div class="form-group">
-      <input type="email" class="form-control" id="email" placeholder="City*">
-    </div>
-    
-  </form>
-</div>
-<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 partner3">
-  <form role="form">
-    <div class="form-group">
-      <input type="email" class="form-control" id="email" placeholder="Website*">
-    </div>
-    
-  </form>
-</div>
-
-</div>
-</div>
-<div class="container">
-<div class="row">
-<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 partner3">
-  <form role="form">
-    <div class="form-group">
-      <input type="email" class="form-control" id="email" placeholder="Contact Person*">
-    </div>
-    
-  </form>
-</div>
-<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 partner3">
-  <form role="form">
-    <div class="form-group">
-      <input type="email" class="form-control" id="email" placeholder="Mobile no*">
-    </div>
-    
-  </form>
-</div>
-
-</div>
-</div>
-<div class="container">
-<div class="row">
-<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 partner3">
-  <form role="form">
-    <div class="form-group">
-      <input type="email" class="form-control" id="email" placeholder="Your Email*">
-    </div>
-    
-  </form>
-</div>
-<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 partner3">
-  <form role="form">
-    <div class="form-group">
-      <input type="email" class="form-control" id="email" placeholder="Company Name*">
-    </div>
-    
-  </form>
-</div>
-
-</div>
-</div>
-<div class="container">
-<div class="row">
-<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 partner3">
-  <div class="form-group">
-   
-    <textarea type="text" class="form-control" id="text" placeholder="Your message" style="height:150px;"></textarea>
-  </div>
-</div>
-</div>
-</div>
-<div class="container">
-<div class="row">
-<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 partner3">
-<div class="form-group">
-            
-              <div class="pull-right">
-                <button type="submit" class="btn btn-default">Send</button>
-              
-            </div>
-          </div>
-		  </div>
-		  </div>
-		  </div>
-		  <div class="container partner3">
+<?php _e(do_shortcode('[contact-form-7 id="304" title="partners"]')); ?>
+<div class="container partner3">
 <div class="row">
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 partner3 part3">
 <h1>Our Partners:</h1></div>

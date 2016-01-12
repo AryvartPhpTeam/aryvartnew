@@ -152,7 +152,20 @@ function event_register() {
     );
     register_post_type( 'events' , $args );
 }
+add_action('init', 'partner_register');
 
+function partner_register() {
+    $args = array(
+                'labels' =>array(
+                        'name' => 'Partners',
+                        'add_new_item' => 'Add New Post',
+                       ),
+                'public' => true,
+                'capability_type' => 'post',
+                'supports' => array('title','editor','author','comments','thumbnail')
+    );
+    register_post_type( 'partner' , $args );
+}
 add_action('init', 'footer_image');
 function footer_image() {
     $args = array(
@@ -183,11 +196,11 @@ function hkdc_post_date_field($post) {
 <?php
 }
 function hkdc_post_date_meta_box() {
-    add_meta_box('entry_post_date', 'Date', 'hkdc_post_date_field', 'events', 'side', 'default');
+    add_meta_box('entry_post_date', 'Date', 'hkdc_post_date_field', 'events', 'normal', 'default');
 }
 add_action('add_meta_boxes', 'hkdc_post_date_meta_box');
 add_action('save_post','save_post_date_meta');
-function save_post_date_meta($post)
+function save_post_date_meta($post_id)
 
 {
     if(isset($_POST['entry_post_date']))
@@ -366,6 +379,7 @@ function our_team() {
     );
     register_post_type( 'ourteam' , $args );
 }
+
 add_action( 'init', 'create_service' );
 
 function create_service() {
