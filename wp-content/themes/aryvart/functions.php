@@ -306,7 +306,8 @@ add_action('admin_menu', 'page_menu');
 
 function page_menu() {
     add_menu_page('Aryvart Options', 'What we are', 'manage_options', 'aryvartpage', 'my_plugin_option', '', 6);
-    add_submenu_page('aryvartpage', 'What we do', 'What we do', 'manage_options', 'what_we_do', 'my_custom_submenu_page_callback');
+    add_submenu_page('aryvartpage', 'careers', 'careers', 'manage_options', 'careers', 'my_custom_submenu_page_callback');
+    add_submenu_page('aryvartpage', 'How It work', 'How It Work', 'manage_options', 'work', 'my_work_option');
 }
 
 function my_plugin_option(){
@@ -364,7 +365,102 @@ function my_plugin_option(){
     <?php
 }
 function my_custom_submenu_page_callback(){
-    echo "Admin Page Test"; 
+
+    if(isset($_POST['submit']))
+    {
+        update_option('service_info', $_POST['service_info']);
+    }
+
+    $service_info = get_option('service_info');
+    //print_r($service_info);
+    $fields = array(
+        'careers' => 'CAREERS',
+        'lorem_ipsum' => 'Lorem Ipsum ',
+        'life' => 'Life at aryvart',
+        'fun' => 'Its fun',
+        'modal' => 'Modal Example'
+        );
+
+    ?>
+
+    <div class="wrap">
+        <h1>General Settings</h1>
+        <form novalidate="novalidate" method="post">
+            <table class="form-table">
+                <tbody>
+                    <?php foreach($fields as $name=>$label){?>
+                    <tr>
+                        <th scope="row">
+                            <label for="blogname"><?php _e($label); ?></label>
+                        </th>
+                        <td>
+                          <?php  
+    $pages = get_pages( $args ) ;
+    echo "<select name='service_info[$name]>' ";
+    foreach ( $pages as $page ) {
+      $sel = (isset($service_info[$name]) && $page->ID == $service_info[$name]) ? 'selected' : '';
+      echo "<option $sel value='{$page->ID}'>{$page->post_title}</option>";
+    }
+    echo "</select>";
+    ?>
+                        </td>
+                    </tr>
+                    <?php }?>
+                </tbody>
+            </table>
+            <?php submit_button();?>
+        </form>
+    </div>
+
+    <?php 
+}
+function my_work_option(){
+    
+    if(isset($_POST['submit']))
+    {
+        update_option('service_info', $_POST['service_info']);
+    }
+
+    $service_info = get_option('service_info');
+    //print_r($service_info);
+    $fields = array(
+        'howitwork' => 'How it works',
+        'testing' => 'TESTING',
+        'project_management' => 'PROJECT MANAGEMENT',
+        'conclusion' => 'Conclusion Page',
+        );
+
+    ?>
+    <div class="wrap">
+        <h1>General Settings</h1>
+        <form novalidate="novalidate" method="post">
+            <table class="form-table">
+                <tbody>
+                    <?php foreach($fields as $name=>$label){?>
+                    <tr>
+                        <th scope="row">
+                            <label for="blogname"><?php _e($label); ?></label>
+                        </th>
+                        <td>
+                          <?php  
+    $pages = get_pages( $args ) ;
+    echo "<select name='service_info[$name]>' ";
+    foreach ( $pages as $page ) {
+      $sel = (isset($service_info[$name]) && $page->ID == $service_info[$name]) ? 'selected' : '';
+      echo "<option $sel value='{$page->ID}'>{$page->post_title}</option>";
+    }
+    echo "</select>";
+    ?>
+                        </td>
+                    </tr>
+                    <?php }?>
+                </tbody>
+            </table>
+            <?php submit_button();?>
+        </form>
+    </div>
+
+    <?php
 }
  add_action('init', 'our_team');
 function our_team() {
@@ -399,6 +495,43 @@ function create_service() {
             'hierarchical' => true,
         )
     );
+
+function current_openning() {
+  $labels = array(
+    'name'               => _x( 'Openings', 'post type general name' ),
+    'add_new'            => _x( 'Add New', 'book' ),
+    'add_new_item'       => __( 'Add New domain' ),
+    'edit_item'          => __( 'Edit Domian' ),
+    'new_item'           => __( 'New Domian' ),
+    'all_items'          => __( 'All Domian' ),
+    'view_item'          => __( 'View Domian' ),
+    'search_items'       => __( 'Search Domian' ),
+    'menu_name'          => 'Current Opening'
+  );
+  $args = array(
+    'labels'        => $labels,
+    'description'   => 'Holds our Domain and Current Openning in specific domain',
+    'public'        => true,
+    'menu_position' => 5,
+    'supports'      => array( 'title', 'editor', 'thumbnail' ),
+    'has_archive'   => true,
+  );
+  register_post_type( 'opening', $args ); 
+}
+add_action( 'init', 'current_openning' );
+add_action('init', 'howit_work');
+function howit_work() {
+    $args = array(
+                'labels' =>array(
+                        'name' => 'Issues',
+                        'add_new_item' => 'Add New Issues',
+                       ),
+                'public' => true,
+                'capability_type' => 'post',
+                'supports' => array('title','editor','author','thumbnail')
+    );
+    register_post_type( 'issues' , $args );
+}
 
 }
 add_action('init', 'crm_register');
