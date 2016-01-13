@@ -8,14 +8,11 @@ Template Name: portfolio
   <section class="blog-block clearfix">
     <div class="container">
       <div class="row">
-        <?php
-          $post_id = 108;
-          $queried_post = get_post($post_id);
-        ?>
+         <?php $whatwedo_info = get_option('whatwedo_info'); ?>
       <div class="blog">
-      <h1><?php echo $queried_post->post_title; ?></h1>
+      <h1><?php _e(get_the_title($work_info['portifolio'])); ?></h1>
       <hr class="blog-bor">
-      <p><?php echo $queried_post->post_content; ?></p>
+      <p><?php _e(get_post($whatwedo_info['portifolio'])->post_content); ?></p>
        </div>
        </div>
     </div>

@@ -293,21 +293,13 @@ All in-house projects are also subjected to the same level of testing to ensure 
 -->
 <div class="container">
 <div class="row">
-<?php  
-         $event= get_posts(array('post_type' => 'blog',  'posts_per_page' => 4 ,'tax_query' => array(
-        array(
-            'taxonomy' => 'blogcategory',
-            'terms' => $term_id,
-            'field' => 'id',
-        )
-    ))); 
-  
-   $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' );
- 
-   ?>
+<?php   
+  while ( have_posts() ) : the_post();
+  $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ), 'single-post-thumbnail' );?>
+?>
    
 <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12">
-<div class="date-blog date-blog1"><span><?php _e(date("d",strtotime(get_post_meta( $res->ID, 'entry_post_month', true ))));?></span><hr><span><?php _e(date("M",strtotime(get_post_meta( $res->ID, 'entry_post_month', true ))));?></span></div>
+<div class="date-blog date-blog1"><span><?php _e(date("d",strtotime(get_post_meta( $post->ID, 'entry_post_month', true ))));?></span><hr><span><?php _e(date("M",strtotime(get_post_meta( $res->ID, 'entry_post_month', true ))));?></span></div>
 </div>
 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 blog5">
 <div class="post-details1">
@@ -317,13 +309,14 @@ All in-house projects are also subjected to the same level of testing to ensure 
         $term=wp_get_post_terms($post->ID, $taxonomy, array("fields" => "names"));
 ?>
 <h4 class="folder"><i class="fa fa-folder-open-o"></i> &nbsp; &nbsp;<span> <?php echo (implode(',',$term));?></span></h4></div>
-<h1 class="blog7"><?php _e($event->post_title);?></h1>
-<p class="blog8"><?php _e($event->post_content);?></p>
+<h1 class="blog7"><?php the_title();?></h1>
+<p class="blog8"><?php the_content();?></p>
 <div class="client-icon1">
 <em class="blog9">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC</em><br></div>
 <p class="blog8">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
 <div class="dummy"></div>
 </div>
+<?php endwhile;?>
   <?php get_sidebar(); ?>
 </div>
 </div>

@@ -110,7 +110,8 @@
 </div>
 <?php }else{
 /*<!-- header-bar -->*/
-if(is_page( 'how-it-works') ){ ?>
+
+ if(is_page( 'how-it-works') ){ ?>
    <link href="<?php echo get_template_directory_uri(); ?>/css/animate.min.css" rel="stylesheet">
 <link href="<?php echo get_template_directory_uri(); ?>/css/demo.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/responsive.css">

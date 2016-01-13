@@ -5,7 +5,7 @@
       <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 mar-top">
         <div class="services animatedParent">
           <h3 class='animated bounceInDown'>OUR SERVICES</h3>
-          <h2 class='animated bounceInDown'><strong><?php $service_info = get_option('service_info');?><?php _e($service_info['ourservice']); ?></strong></h2>
+          <h2 class='animated bounceInDown'><strong><?php $aryvart_info = get_option('aryvart_info');?><?php _e($aryvart_info['ourservice']); ?></strong></h2>
         </div>
       </div>
       <?php 
@@ -47,7 +47,7 @@
       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 animatedParent">
         <div class="client1  animated bounceInRight slow">
           <h3> OUR CLIENTS</h3>
-          <h2><strong><?php _e($service_info['ourclient']); ?></strong></h2>
+          <h2><strong><?php _e($aryvart_info['ourclient']); ?></strong></h2>
         </div>
       </div>
     </div>
@@ -60,7 +60,7 @@
         <div class="client-icon bor-rit2 animated bounceInUp padded"> <img src="<?php echo get_template_directory_uri(); ?>/images/icon5.png">
           <div class="row">
             <div class="star"> <span><strong class="fnt-sz">
-             <?php _e($service_info['successful_years']); ?> </strong></span>
+             <?php _e($aryvart_info['successful_years']); ?> </strong></span>
               <p>Successfull<br> Years</p>
 
             </div>
@@ -71,7 +71,7 @@
       <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 animatedParent">
         <div class="client-icon bor-rit1 animated bounceInUp padded"> <img src="<?php echo get_template_directory_uri(); ?>/images/icon6.png">
           <div class="row">
-            <div class="star"> <span><strong class="fnt-sz"><?php _e($service_info['developers']); ?></strong></span>
+            <div class="star"> <span><strong class="fnt-sz"><?php _e($aryvart_info['developers']); ?></strong></span>
               <p>Developers & <br>
                 UI Engineers</p>
             </div>
@@ -81,7 +81,7 @@
       <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 animatedParent">
         <div class="client-icon bor-rit2 animated bounceInUp padded"> <img src="<?php echo get_template_directory_uri(); ?>/images/icon7.png">
           <div class="row">
-            <div class="star"> <span><strong class="fnt-sz"><?php _e($service_info['successful_products']); ?></strong></span>
+            <div class="star"> <span><strong class="fnt-sz"><?php _e($aryvart_info['successful_products']); ?></strong></span>
               <p>Successful Mobile <br>
                 & Web Products</p>
             </div>
@@ -91,7 +91,7 @@
       <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 animatedParent">
         <div class="client-icon bor-rit animated bounceInUp padded"> <img src="<?php echo get_template_directory_uri(); ?>/images/icon8.png">
           <div class="row">
-            <div class="star"> <span><strong class="fnt-sz"><?php _e($service_info['satisfaction']); ?></strong></span>
+            <div class="star"> <span><strong class="fnt-sz"><?php _e($aryvart_info['satisfaction']); ?></strong></span>
               <p>Customer <br>
                  Satisfaction</p>
             </div>
@@ -108,7 +108,7 @@
         <div class="latest-news1 animatedParent">
           <h2 class='animated bounceInDown'>WHAT WE DO<br>
 
-            <strong><?php _e($service_info['whatwedo']); ?></strong></h2>
+            <strong><?php _e($aryvart_info['whatwedo']); ?></strong></h2>
         </div>
       </div>
       <div class="col-lg-4 col-md-4 col-sm-2 col-xs-12">

@@ -180,10 +180,10 @@ function my_plugin_option1(){
     
     if(isset($_POST['submit']))
     {
-        update_option('service_info', $_POST['service_info']);
+        update_option('aryvart_info', $_POST['aryvart_info']);
     }
 
-    $service_info = get_option('service_info');
+    $aryvart_info = get_option('aryvart_info');
    
     $fields = array(
         'successful_years' => 'Successful Years',
@@ -207,7 +207,7 @@ function my_plugin_option1(){
                             <label for="blogname"><?php _e($label); ?></label>
                         </th>
                         <td>
-                            <input id="blogname" class="regular-text" type="text" value="<?php _e(isset($service_info[$name]) ? $service_info[$name] : '');?>" name="service_info[<?php _e($name); ?>]">
+                            <input id="blogname" class="regular-text" type="text" value="<?php _e(isset($aryvart_info[$name]) ? $aryvart_info[$name] : '');?>" name="aryvart_info[<?php _e($name); ?>]">
                         </td>
                     </tr>
                     <?php }?>
@@ -223,10 +223,10 @@ function my_custom_submenu_callback(){
     
     if(isset($_POST['submit']))
     {
-        update_option('service_info', $_POST['service_info']);
+        update_option('footer_info', $_POST['footer_info']);
     }
 
-    $service_info = get_option('service_info');
+    $footer_info = get_option('footer_info');
    
     $fields = array(
         'country' => 'Country',
@@ -254,7 +254,7 @@ function my_custom_submenu_callback(){
                             <label for="blogname"><?php _e($label); ?></label>
                         </th>
                         <td>
-                            <input id="blogname" class="regular-text" type="text" value="<?php _e(isset($service_info[$name]) ? $service_info[$name] : '');?>" name="service_info[<?php _e($name); ?>]">
+                            <input id="blogname" class="regular-text" type="text" value="<?php _e(isset($footer_info[$name]) ? $footer_info[$name] : '');?>" name="footer_info[<?php _e($name); ?>]">
                         </td>
                     </tr>
                     <?php }?>
@@ -275,16 +275,17 @@ function page_menu() {
     add_menu_page('Aryvart Options', 'What we are', 'manage_options', 'aryvartpage', 'my_plugin_option', '', 6);
     add_submenu_page('aryvartpage', 'careers', 'careers', 'manage_options', 'careers', 'my_custom_submenu_page_callback');
     add_submenu_page('aryvartpage', 'How It work', 'How It Work', 'manage_options', 'work', 'my_work_option');
+    add_submenu_page('aryvartpage', 'What We Do', 'What We Do', 'manage_options', 'design', 'my_option');
 }
 
 function my_plugin_option(){
     
     if(isset($_POST['submit']))
     {
-        update_option('service_info', $_POST['service_info']);
+        update_option('whatweare_info', $_POST['whatweare_info']);
     }
 
-    $service_info = get_option('service_info');
+    $whatweare_info = get_option('whatweare_info');
     //print_r($service_info);
     $fields = array(
         'whoweare' => 'Who we are',
@@ -313,11 +314,14 @@ function my_plugin_option(){
                         <td>
                           <?php  
     $pages = get_pages( $args ) ;
-    echo "<select name='service_info[$name]>' ";
+    echo "<select name='whatweare_info[$name]>' ";
     foreach ( $pages as $page ) {
-      $sel = (isset($service_info[$name]) && $page->ID == $service_info[$name]) ? 'selected' : '';
+
+      $sel = (isset($whatweare_info[$name]) && $page->ID == $whatweare_info[$name]) ? 'selected' : '';
       echo "<option $sel value='{$page->ID}'>{$page->post_title}</option>";
+        
     }
+
     echo "</select>";
     ?>
                         </td>
@@ -331,14 +335,69 @@ function my_plugin_option(){
 
     <?php
 }
+function my_option(){
+    
+    if(isset($_POST['submit']))
+    {
+        update_option('whatwedo_info', $_POST['whatwedo_info']);
+    }
+
+    $whatwedo_info = get_option('whatwedo_info');
+    //print_r($service_info);
+    $fields = array(
+        'webdevelopement' => 'Website Developement',
+        'developement' => 'Php Developement',
+        'Webdesign' => 'Web Design',
+        'partner' => 'Partners Page',
+        'blog' => 'Blog',
+        'portifolio' => 'Portifolio'
+        );
+
+    ?>
+
+    <div class="wrap">
+        <h1>What We Pages</h1>
+        <form novalidate="novalidate" method="post">
+            <table class="form-table">
+                <tbody>
+                    <?php foreach($fields as $name=>$label){?>
+                    <tr>
+                        <th scope="row">
+                            <label for="blogname"><?php _e($label); ?></label>
+                        </th>
+                        <td>
+                          <?php  
+    $pages = get_pages( $args ) ;
+    echo "<select name='whatwedo_info[$name]>' ";
+    foreach ( $pages as $page ) {
+
+      $sel = (isset($whatwedo_info[$name]) && $page->ID == $whatwedo_info[$name]) ? 'selected' : '';
+      echo "<option $sel value='{$page->ID}'>{$page->post_title}</option>";
+        
+    }
+
+    echo "</select>";
+    ?>
+                        </td>
+                    </tr>
+                    <?php }?>
+                </tbody>
+            </table>
+            <?php submit_button();?>
+        </form>
+    </div>
+
+    <?php
+}
+
 function my_custom_submenu_page_callback(){
 
     if(isset($_POST['submit']))
     {
-        update_option('service_info', $_POST['service_info']);
+        update_option('work_info', $_POST['work_info']);
     }
 
-    $service_info = get_option('service_info');
+    $work_info = get_option('work_info');
     //print_r($service_info);
     $fields = array(
         'careers' => 'CAREERS',
@@ -363,9 +422,9 @@ function my_custom_submenu_page_callback(){
                         <td>
                           <?php  
     $pages = get_pages( $args ) ;
-    echo "<select name='service_info[$name]>' ";
+    echo "<select name='work_info[$name]>' ";
     foreach ( $pages as $page ) {
-      $sel = (isset($service_info[$name]) && $page->ID == $service_info[$name]) ? 'selected' : '';
+      $sel = (isset($work_info[$name]) && $page->ID == $work_info[$name]) ? 'selected' : '';
       echo "<option $sel value='{$page->ID}'>{$page->post_title}</option>";
     }
     echo "</select>";
