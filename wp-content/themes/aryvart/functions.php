@@ -4,140 +4,6 @@ register_nav_menus( array(
 	'footer_menu' => 'My Custom Footer Menu',
 	) );
 add_theme_support( 'post-thumbnails' );
-add_action('admin_init', 'my_general_section');  
-function my_general_section() {  
-    add_settings_section(  
-        'my_settings_section', // Section ID 
-        'My Footer Settings', // Section Title
-        'my_section_options_callback', // Callback
-        'general' // What Page?  This makes the section show up on the General Settings Page
-    );
-
-    add_settings_field( // Option 1
-        'address', // Option ID
-        'Address', // Label
-        'my_textbox_callback', // !important - This is where the args go!
-        'general', // Page it will be displayed (General Settings)
-        'my_settings_section', // Name of our section
-        array( // The $args
-            'address' // Should match Option ID
-        )    
-
-    ); 
-    add_settings_field( // Option 3
-        'state', // Option ID
-        'State', // Label
-        'my_textbox_callback', // !important - This is where the args go!
-        'general', // Page it will be displayed
-        'my_settings_section', // Name of our section (General Settings)
-        array( // The $args
-            'state' // Should match Option ID
-        )  
-    ); 
-    add_settings_field( // Option 4
-        'telephone', // Option ID
-        'Telephone', // Label
-        'my_textbox_callback', // !important - This is where the args go!
-        'general', // Page it will be displayed
-        'my_settings_section', // Name of our section (General Settings)
-        array( // The $args
-            'telephone' // Should match Option ID
-        )  
-    ); 
-    add_settings_field( // Option 5
-        'email', // Option ID
-        'Email', // Label
-        'my_textbox_callback', // !important - This is where the args go!
-        'general', // Page it will be displayed
-        'my_settings_section', // Name of our section (General Settings)
-        array( // The $args            'email' // Should match Option ID
-        )  
-    ); 
-    add_settings_field( // Option 5
-        'title', // Option ID
-        'Title', // Label
-        'my_textbox_callback', // !important - This is where the args go!
-        'general', // Page it will be displayed
-        'my_settings_section', // Name of our section (General Settings)
-        array( // The $args
-            'title' // Should match Option ID
-        )  
-    ); 
-    add_settings_field( // Option 5
-        'title1', // Option ID
-        'Title1', // Label
-        'my_textbox_callback', // !important - This is where the args go!
-        'general', // Page it will be displayed
-        'my_settings_section', // Name of our section (General Settings)
-        array( // The $args
-            'title1' // Should match Option ID
-        )  
-    ); 
-    add_settings_field( // Option 5
-        'title2', // Option ID
-        'Title2', // Label
-        'my_textbox_callback', // !important - This is where the args go!
-        'general', // Page it will be displayed
-        'my_settings_section', // Name of our section (General Settings)
-        array( // The $args
-            'title2' // Should match Option ID
-        )  
-    ); 
-    add_settings_field( // Option 5
-        'description', // Option ID
-        'description', // Label
-        'my_textbox_callback', // !important - This is where the args go!
-        'general', // Page it will be displayed
-        'my_settings_section', // Name of our section (General Settings)
-        array( // The $args
-            'description' // Should match Option ID
-        )  
-    ); 
-    add_settings_field( 
-        'upload', 
-        'image', 
-        'my_upload_callback',
-        'general', // Page it will be displayed
-        'my_settings_section', 
-        array( 'upload '
-        )
-
-     );
-
-    register_setting('general','address', 'esc_attr');
-    register_setting('general','state', 'esc_attr');
-    register_setting('general','telephone', 'esc_attr');
-    register_setting('general','email', 'esc_attr');
-    register_setting('general','title', 'esc_attr');
-    register_setting('general','title1', 'esc_attr');
-    register_setting('general','title2', 'esc_attr');
-    register_setting('general','description', 'esc_attr');
-    register_setting('general','upload', 'esc_html');
-    
-}
-
-function my_section_options_callback() { // Section Callback
-    echo '<p>Footer Field</p>';  
-}
-
-function my_textbox_callback($args) {  // Textbox Callback
-    $option = get_option($args[0]);
-    echo '<input type="text" class="regular-text" id="'. $args[0] .'" name="'. $args[0] .'" value="' . $option . '" />';
-}
-function my_upload_callback($args) {  // Textbox Callback
-    
-    //print_r($_FILES);
-    $option = get_option($args[0]);
-    if ( $pages = get_pages( $args )) {
-    echo "<select multiple>";
-    foreach ( $pages as $page ) {
-      echo "<option value='{$page->ID}'>{$page->post_title}</option>";
-    }
-    echo "</select>";
-  }
-    
-}
-
 add_action('init', 'event_register');
 
 function event_register() {
@@ -159,7 +25,7 @@ function partner_register() {
     $args = array(
                 'labels' =>array(
                         'name' => 'Partners',
-                        'add_new_item' => 'Add New Post',
+                        'add_new_item' => 'Add New Partner',
                        ),
                 'public' => true,
                 'capability_type' => 'post',
@@ -167,17 +33,6 @@ function partner_register() {
     );
     register_post_type( 'partner' , $args );
 }
-add_action('init', 'footer_image');
-function footer_image() {
-    $args = array(
-                'labels' =>array(
-                        'name' => 'Footer',
-                        'add_new_item' => 'Add footer',
-                       )
-                );
-    register_post_type( 'footer' , $args );
-}
-
 
 function hkdc_admin_styles() {
     wp_enqueue_style( 'jquery-ui-datepicker-style' ,get_template_directory_uri() .'/css/jquery-ui.css');
@@ -210,28 +65,116 @@ function save_post_date_meta($post_id)
     if(isset($_POST['entry_post_date']))
     update_post_meta($post_id, 'entry_post_date', $_POST['entry_post_date']);
 }
-
-add_action('init', 'footer_image');
-function footer_image() {
-    $args = array(
-                'labels' =>array(
-                        'name' => 'Footer',
-                        'add_new_item' => 'Add footer',
-                       )
-                
-                
-                );
-
-    register_post_type( 'footer' , $args );
-}
-
-
 add_action('admin_menu', 'aryvart_menu');
 
 function aryvart_menu() {
     add_menu_page('Aryvart Options', 'Aryvart Options', 'manage_options', 'aryvart', 'my_plugin_option1', '', 6);
     add_submenu_page('aryvart', 'Aryvart Contact', 'Aryvart Contact', 'manage_options', 'aryvart_contact', 'my_custom_submenu_callback');
+    add_submenu_page('aryvart', 'Footer Image', 'Footer Image', 'manage_options', 'footer_image', 'my_plugin_options2');
 }
+function my_plugin_options2() {
+    if (isset($_POST['submit'])) {
+        $uploadedfile = $_FILES['footer_image'];
+
+        $upload_overrides = array('test_form' => false);
+
+        $movefile = wp_handle_upload($uploadedfile, $upload_overrides);
+        $footer_menu = get_option('footer_menu');
+       
+            if ($movefile && !isset($movefile['error'])) {
+                $_POST['footer_menu']['footer_image'] = $movefile['url'];
+            }
+        
+        else if (isset($footer_menu['footer_image'])) {
+            $_POST['footer_menu']['footer_image'] = $footer_menu['footer_image'];
+        }
+        update_option('footer_menu', $_POST['footer_menu']);
+    }
+    $footer_menu = get_option('footer_menu');
+    ?>
+    <div class="wrap">
+        <h1>Footer Options</h1>
+        <form novalidate="novalidate" method="post" enctype="multipart/form-data">
+            <table class="form-table">
+                <tbody>
+
+                    <tr>
+                        <th scope="row"><label for="blogname">Footer Description</label></th>
+                        <td><textarea rows="5" cols="50" class="regular-text" name="footer_menu[footer_text]"><?php echo isset($footer_menu['footer_text']) ? $footer_menu['footer_text'] : ''; ?></textarea>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row"><label for="blogname">Footer Image</label></th>
+                        <td>
+                            <?php if (isset($footer_menu['footer_image'])) { ?>
+                                <img src="<?php echo $footer_menu['footer_image']; ?>" /> <br />
+                            <?php } ?>
+                            <input type="file" class="regular-text"  id="blogname" name="footer_image">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><label for="blogname">Facebook url</label></th>
+                        <td><input type="text" class="regular-text" name="footer_menu[facebook]" value="<?php echo isset($footer_menu['facebook']) ? $footer_menu['facebook'] : ''; ?>">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><label for="blogname">Twitter url</label></th>
+                        <td><input type="text" class="regular-text" name="footer_menu[twitter]" value="<?php echo isset($footer_menu['twitter']) ? $footer_menu['twitter'] : ''; ?>">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><label for="blogname">Google Plus url</label></th>
+                        <td><input type="text" class="regular-text" name="footer_menu[google_plus]" value="<?php echo isset($footer_menu['google_plus']) ? $footer_menu['google_plus'] : ''; ?>">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><label for="blogname">Linked in url</label></th>
+                        <td><input type="text" class="regular-text" name="footer_menu[linked_in]" value="<?php echo isset($footer_menu['linked_in']) ? $footer_menu['linked_in'] : ''; ?>">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><label for="blogname">Youtube url</label></th>
+                        <td><input type="text" class="regular-text" name="footer_menu[youtube]" value="<?php echo isset($footer_menu['youtube']) ? $footer_menu['youtube'] : ''; ?>">
+                        </td>
+                    </tr>
+                     <tr>
+                        <th scope="row"><label for="blogname">Footer News 1</label></th>
+                        <td><input type="text" class="regular-text" name="footer_menu[news1]" value="<?php echo isset($footer_menu['news1']) ? $footer_menu['news1'] : ''; ?>">
+                        </td>
+                    </tr>
+                     <tr>
+                        <th scope="row"><label for="blogname">Footer News 2</label></th>
+                        <td><input type="text" class="regular-text" name="footer_menu[news2]" value="<?php echo isset($footer_menu['news2']) ? $footer_menu['news2'] : ''; ?>">
+                        </td>
+                    </tr>
+                     <tr>
+                        <th scope="row"><label for="blogname">Footer News 3</label></th>
+                        <td><input type="text" class="regular-text" name="footer_menu[news3]" value="<?php echo isset($footer_menu['news3']) ? $footer_menu['news3'] : ''; ?>">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><label for="blogname">Address</label></th>
+                        <td><textarea class="regular-text" rows="5" cols="39" name="footer_menu[address]"><?php echo isset($footer_menu['address']) ? $footer_menu['address'] : ''; ?></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><label for="blogname">Website</label></th>
+                        <td><input type="text" class="regular-text" name="footer_menu[website]" value="<?php echo isset($footer_menu['website']) ? $footer_menu['website'] : ''; ?>">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><label for="blogname">Telephone No</label></th>
+                        <td><input type="text" class="regular-text" name="footer_menu[telephone]" value="<?php echo isset($footer_menu['telephone']) ? $footer_menu['telephone'] : ''; ?>">
+                        </td>
+                    </tr>
+                   </tbody>
+            </table>
+        <?php echo submit_button(); ?>
+        </form>
+        <?php
+    }
+
 
 function my_plugin_option1(){
     
@@ -254,7 +197,7 @@ function my_plugin_option1(){
     ?>
 
     <div class="wrap">
-        <h1>General Settings</h1>
+        <h1>Aryvart Options</h1>
         <form novalidate="novalidate" method="post">
             <table class="form-table">
                 <tbody>
@@ -301,7 +244,7 @@ function my_custom_submenu_callback(){
 
 
     <div class="wrap">
-        <h1>General Settings</h1>
+        <h1>Aryvart Contacts</h1>
         <form novalidate="novalidate" method="post">
             <table class="form-table">
                 <tbody>
@@ -578,8 +521,8 @@ add_action('init', 'gallery');
 function gallery() {
     $args = array(
                 'labels' =>array(
-                        'name' => 'gallery',
-                        'add_new_item' => 'Add New gallery',
+                        'name' => 'Gallery',
+                        'add_new_item' => 'Add New Gallery',
                        ),
                 'public' => true,
                 'capability_type' => 'post',
@@ -594,7 +537,7 @@ function create_book_tax() {
         'gallerytitle',
         'gallery',
         array(
-            'label' => __( 'gallery title' ),
+            'label' => __( 'Gallery title' ),
             //'rewrite' => array( 'slug' => 'genre' ),
             'hierarchical' => true,
         )
@@ -607,7 +550,7 @@ function blog() {
     $args = array(
                 'labels' =>array(
                         'name' => 'Blog',
-                        'add_new_item' => 'Add New blog',
+                        'add_new_item' => 'Add New Blog',
                        ),
                 'public' => true,
                 'capability_type' => 'post',
@@ -663,7 +606,6 @@ function save_post_month_meta($post_id)
     update_post_meta($post_id, 'entry_post_month', $_POST['entry_post_month']);
 }
 
- 
 register_sidebars(1, array(
     'description'   => '',
     'class'         => 'standard',
@@ -675,4 +617,6 @@ register_sidebars(1, array(
 
 if(isset($_GET['tag']))
 $_GET['post_type']='blog';
+
+
 

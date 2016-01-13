@@ -3,37 +3,37 @@
     <div class="row mar-top1">   
       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
         <div class="foot">
-        <?php 
-      $testimonial = get_posts(array('post_type' => 'footer'));
-      foreach($testimonial as $res){
-        $image = wp_get_attachment_image_src( get_post_thumbnail_id( $res->ID ), 'single-post-thumbnail' );
-      ?>
-        
-          <img src="<?php  _e($image[0]); ?>" class="img-responsive">
-          <p><?php echo $res->post_content; ?></p>
-        </div>
+        <?php  $footer_menu = get_option('footer_menu');
+            if(isset($footer_menu)) 
+              {
+            if(isset($footer_menu['footer_image']))
+            {
+           ?>
+          <img src="<?php _e($footer_menu['footer_image']); ?>" class="img-responsive">
+          <?php } ?>
+          <p><?php _e($footer_menu['footer_text']); ?></p>
+                   </div>
       </div>
-      <?php }?>
       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
       <div class="foot">
         <div class="foot-news">
           <h4>News</h4>
           <ul>
-            <li><?php echo get_option('title'); ?></li>
-            <li><?php echo get_option('title1'); ?></li>
-            <li><?php echo get_option('title2'); ?></li>
+            <li><?php _e($footer_menu['news1']); ?></li>
+            <li><?php _e($footer_menu['news2']); ?></li>
+            <li><?php _e($footer_menu['news3']); ?></li>
             <!-- <li>New design trends</li>-->
           </ul>
-        </div>
+          </div>
         </div>
       </div>
      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
         <div class="foot" style="border-right:none;">
           <h4>Contact</h4>
           <ul>
-            <li><i class="fa fa-phone"></i> &nbsp; &nbsp;&nbsp;<?php echo get_option('telephone'); ?></li>
-            <li><i class="fa fa-envelope-o"></i> &nbsp; &nbsp;&nbsp;<?php echo get_option('email'); ?></li>
-            <li><i class="fa fa-map-marker"></i> &nbsp; &nbsp;&nbsp;<?php echo get_option('address'); ?>&nbsp; &nbsp; <?php   echo get_option('state');?></li>
+            <li><i class="fa fa-phone"></i> &nbsp; &nbsp;&nbsp;<?php _e($footer_menu['telephone']); ?></li>
+            <li><i class="fa fa-envelope-o"></i> &nbsp; &nbsp;<?php _e($footer_menu['website']); ?></li>
+            <li><i class="fa fa-map-marker"></i> &nbsp; &nbsp;<?php _e($footer_menu['address']); ?></li>
           </ul>
         </div>
       </div>   
@@ -44,13 +44,14 @@
 <footer>
   <div class="container">
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-      <ul class="list-inline">
-        <li><a href="http://www.facebook.com" target="_blank"><i class="fa fa-facebook"></i></a></li>
-        <li><a href="https://twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a></li>
-        <li><a href="https://plus.google.com/collections/featured" target="_blank"><i class="fa fa-google-plus"></i></a></li>
-        <li><a href="https://linkedin.com/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-        <li><a href="https://www.youtube.com/" target="_blank"><i class="fa fa-youtube"></i></a></li>
+        <ul class="list-inline">
+        <li><a href="<?php _e($footer_menu['facebook']); ?>" target="_blank"><i class="fa fa-facebook"></i></a></li>
+        <li><a href="<?php _e($footer_menu['twitter']); ?>" target="_blank"><i class="fa fa-twitter"></i></a></li>
+        <li><a href="<?php _e($footer_menu['google_plus']); ?>" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+        <li><a href="<?php _e($footer_menu['linked_in']); ?>" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        <li><a href="<?php _e($footer_menu['youtube']); ?>" target="_blank"><i class="fa fa-youtube"></i></a></li>
       </ul>
+      <?php } ?>
     </div>
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
       <p>Copyright&copy; <?php _e(date("Y")); ?> All Reserved by Aryvart</p> 
