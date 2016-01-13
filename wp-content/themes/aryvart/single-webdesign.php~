@@ -23,8 +23,7 @@ get_header();
    <?php $whatwedo_info = get_option('whatwedo_info'); ?>
 <h1 class="web text-center"><?php _e(get_the_title($whatwedo_info['webdesign'])); ?></h1>
 <hr class="blog-bor4">
-<p>
-<?php _e(get_post($whatwedo_info['webdesign'])->post_content); ?></p>
+<?php _e(get_post($whatwedo_info['webdesign'])->post_content); ?>
 <div class="clear2"></div>
 </div>
 </div>

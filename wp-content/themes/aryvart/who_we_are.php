@@ -10,10 +10,10 @@ Template Name: Who we are
     <div class="container">
       <div class="row">
         <div class="blog">
-        	<?php $service_info = get_option('service_info'); ?>
-          <h1><?php _e(get_the_title($service_info['whoweare'])); ?></h1>
+        	<?php $whatweare_info = get_option('whatweare_info'); ?>
+          <h1><?php _e(get_the_title($whatweare_info['whoweare'])); ?></h1>
           <hr class="blog-bor">
-          <p><?php _e(get_post($service_info['whoweare'])->post_content); ?></p>
+          <p><?php _e(get_post($whatweare_info['whoweare'])->post_content); ?></p>
         </div>
       </div>
     </div>
@@ -36,9 +36,9 @@ Template Name: Who we are
 <section class="about-block" id="overview">
   <div class="container">
     <div class="who">
-    <h2><?php _e(get_the_title($service_info['overview'])); ?></h2>
-      <p><?php _e(get_post($service_info['overview'])->post_content); ?></p>
-      <?php _e(get_the_post_thumbnail($service_info['overview'],'full', array( 'class' => 'img-responsive' ))); ?>
+    <h2><?php _e(get_the_title($whatweare_info['overview'])); ?></h2>
+      <p><?php _e(get_post($whatweare_info['overview'])->post_content); ?></p>
+      <?php _e(get_the_post_thumbnail($whatweare_info['overview'],'full', array( 'class' => 'img-responsive' ))); ?>
   </div>
 </section>
 <section class="we-are">
@@ -46,8 +46,8 @@ Template Name: Who we are
     <div class="row">
       <div class="col-lg-8 col-md-7 col-sm-5">
         <div class="we"> 
-          <h2><?php _e(get_the_title($service_info['whoweare2'])); ?></h2>
-          <p><?php _e(get_post($service_info['whoweare2'])->post_content); ?></p>
+          <h2><?php _e(get_the_title($whatweare_info['whoweare2'])); ?></h2>
+          <p><?php _e(get_post($whatweare_info['whoweare2'])->post_content); ?></p>
          </div>
       </div>
     </div>
@@ -56,16 +56,16 @@ Template Name: Who we are
 <section class="our-view" id="mission">
   <div class="container">
     <div class="who">
-      <h2><?php _e(get_the_title($service_info['ourview'])); ?></h2>
-      <p><?php _e(get_post($service_info['ourview'])->post_content); ?></p>
+      <h2><?php _e(get_the_title($whatweare_info['ourview'])); ?></h2>
+      <p><?php _e(get_post($whatweare_info['ourview'])->post_content); ?></p>
     </div>
     <div class="row">
       <div class="col-md-4 col-xs-12">
         <div class="mission">
           <div class="ico"> <span><img src="<?php echo get_template_directory_uri(); ?>/images/mission.png"></span> </div>
           <div class="mission-detail">
-            <h4><?php _e(get_the_title($service_info['ourmission'])); ?></h4>
-            <p><?php _e(get_post($service_info['ourmission'])->post_content); ?></p>
+            <h4><?php _e(get_the_title($whatweare_info['ourmission'])); ?></h4>
+            <p><?php _e(get_post($whatweare_info['ourmission'])->post_content); ?></p>
           </div>
         </div>
       </div>
@@ -73,8 +73,8 @@ Template Name: Who we are
         <div class="mission">
           <div class="ico"> <span><img src="<?php echo get_template_directory_uri(); ?>/images/vission.png"></span> </div>
           <div class="mission-detail">
-            <h4><?php _e(get_the_title($service_info['ourvision'])); ?></h4>
-            <p><?php _e(get_post($service_info['ourvision'])->post_content); ?></p>
+            <h4><?php _e(get_the_title($whatweare_info['ourvision'])); ?></h4>
+            <p><?php _e(get_post($whatweare_info['ourvision'])->post_content); ?></p>
           </div>
         </div>
       </div>
@@ -82,8 +82,8 @@ Template Name: Who we are
         <div class="mission">
           <div class="ico"> <span><img src="<?php echo get_template_directory_uri(); ?>/images/philosopy.png"></span> </div>
           <div class="mission-detail">
-            <h4><?php _e(get_the_title($service_info['philosopy'])); ?></h4>
-            <p><?php _e(get_post($service_info['philosopy'])->post_content); ?></p>
+            <h4><?php _e(get_the_title($whatweare_info['philosopy'])); ?></h4>
+            <p><?php _e(get_post($whatweare_info['philosopy'])->post_content); ?></p>
           </div>
         </div>
       </div>
@@ -93,14 +93,14 @@ Template Name: Who we are
 <section class="our-team" id="ourteam">
   <div class="container">
     <div class="who">
-     <h2><?php _e(get_the_title($service_info['ourteam'])); ?></h2>
-      <p><?php _e(get_post($service_info['ourteam'])->post_content); ?></p>
+     <h2><?php _e(get_the_title($whatweare_info['ourteam'])); ?></h2>
+      <p><?php _e(get_post($whatweare_info['ourteam'])->post_content); ?></p>
     </div>
     <div class="row">
       <div class="col-lg-4 col-md-3 col-sm-12">
         <div class="ary">
-         <h3><?php _e(get_the_title($service_info['aryvart'])); ?></h3>
-      <p><?php _e(get_post($service_info['aryvart'])->post_content); ?></p>
+         <h3><?php _e(get_the_title($whatweare_info['aryvart'])); ?></h3>
+      <p><?php _e(get_post($whatweare_info['aryvart'])->post_content); ?></p>
         </div>
       </div>
        <div class="col-lg-8 col-md-9 col-sm-12">
@@ -134,8 +134,8 @@ Template Name: Who we are
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="blog-con">
-          <h2><?php _e(get_the_title($service_info['get'])); ?></h2>
-          <h6><?php _e(get_post($service_info['get'])->post_content); ?></h6>
+          <h2><?php _e(get_the_title($whatweare_info['get'])); ?></h2>
+          <h6><?php _e(get_post($whatweare_info['get'])->post_content); ?></h6>
         <a href="#" class="btn btn-default"> get a quote</a> </div>
       </div>
     </div>

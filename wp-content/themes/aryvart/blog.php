@@ -10,9 +10,10 @@ Template Name: Blog
     <div class="container">
       <div class="row">
       <div class="blog">
-      <h1>Blog</h1>
+        <?php $whatwedo_info = get_option('whatwedo_info'); ?>
+      <h1><?php _e(get_the_title($work_info['blog'])); ?></h1>
       <hr class="blog-bor">
-      <p>Contrary to popular belief, Lorem Ipsum is not simply random text. </p>
+      <p><?php _e(get_post($whatwedo_info['blog'])->post_content); ?></p>
        </div>
        </div>
     </div>
