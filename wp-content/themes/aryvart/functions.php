@@ -522,7 +522,7 @@ function create_service() {
             'hierarchical' => true,
         )
     );
-
+}
 function current_openning() {
   $labels = array(
     'name'               => _x( 'Openings', 'post type general name' ),
@@ -558,8 +558,6 @@ function howit_work() {
                 'supports' => array('title','editor','author','thumbnail')
     );
     register_post_type( 'issues' , $args );
-}
-
 }
 add_action('init', 'crm_register');
 function crm_register() {
