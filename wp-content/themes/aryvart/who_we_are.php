@@ -10,7 +10,7 @@ Template Name: Who we are
     <div class="container">
       <div class="row">
         <div class="blog">
-        	<?php $whatweare_info = get_option('whatweare_info'); ?>
+          <?php $whatweare_info = get_option('whatweare_info'); ?>
           <h1><?php _e(get_the_title($whatweare_info['whoweare'])); ?></h1>
           <hr class="blog-bor">
           <p><?php _e(get_post($whatweare_info['whoweare'])->post_content); ?></p>
@@ -26,8 +26,8 @@ Template Name: Who we are
       <ul class="nav nav-pills">
         <li class="active ab-back"><a href="#overview"> <i class="fa fa-file-text-o"></i> Overview</a></li>
         <li><a href="#mission"><i class="fa fa-eye"></i> Mission</a></li>
-        <li><a href="#mission"><i class="fa fa-bullseye"></i> Vision</a></li>
-        <li><a href="#mission"><i class="fa fa-lightbulb-o"></i> Philosophy</a></li>
+        <li><a href="#vission"><i class="fa fa-bullseye"></i> Vision</a></li>
+        <li><a href="#philosopy"><i class="fa fa-lightbulb-o"></i> Philosophy</a></li>
         <li><a href="#ourteam"><i class="fa fa-users"></i> Our Team</a></li>
       </ul>
     </div>
@@ -53,37 +53,37 @@ Template Name: Who we are
     </div>
   </div>
 </section>
-<section class="our-view" id="mission">
+<section class="our-view">
   <div class="container">
-    <div class="who">
+    <div class="who" id=" ourview">
       <h2><?php _e(get_the_title($whatweare_info['ourview'])); ?></h2>
       <p><?php _e(get_post($whatweare_info['ourview'])->post_content); ?></p>
     </div>
     <div class="row">
-      <div class="col-md-4 col-xs-12">
+      <div class="col-md-4 col-xs-12"  id="mission">
         <div class="mission">
           <div class="ico"> <span><img src="<?php echo get_template_directory_uri(); ?>/images/mission.png"></span> </div>
           <div class="mission-detail">
             <h4><?php _e(get_the_title($whatweare_info['ourmission'])); ?></h4>
-            <p><?php _e(get_post($whatweare_info['ourmission'])->post_content); ?></p>
+            <p><?php _e(wp_trim_words(get_post($whatweare_info['ourmission'])->post_content,40));?></p>
           </div>
         </div>
       </div>
-      <div class="col-md-4 col-xs-12">
-        <div class="mission">
+      <div class="col-md-4 col-xs-12" id="vission">
+        <div class="mission" >
           <div class="ico"> <span><img src="<?php echo get_template_directory_uri(); ?>/images/vission.png"></span> </div>
           <div class="mission-detail">
             <h4><?php _e(get_the_title($whatweare_info['ourvision'])); ?></h4>
-            <p><?php _e(get_post($whatweare_info['ourvision'])->post_content); ?></p>
+            <p><?php _e(wp_trim_words(get_post($whatweare_info['ourvision'])->post_content,40));?></p>
           </div>
         </div>
       </div>
-      <div class="col-md-4 col-xs-12">
-        <div class="mission">
+      <div class="col-md-4 col-xs-12" id="philosopy">
+        <div class="mission" >
           <div class="ico"> <span><img src="<?php echo get_template_directory_uri(); ?>/images/philosopy.png"></span> </div>
           <div class="mission-detail">
             <h4><?php _e(get_the_title($whatweare_info['philosopy'])); ?></h4>
-            <p><?php _e(get_post($whatweare_info['philosopy'])->post_content); ?></p>
+            <p><?php _e(wp_trim_words(get_post($whatweare_info['philosopy'])->post_content,40));?></p>
           </div>
         </div>
       </div>
@@ -117,7 +117,7 @@ Template Name: Who we are
                 <div class="mask">
                   <p><strong><?php _e($res->post_title);?></strong> <br>
                     <br>
-                    <?php _e($res->post_content);?></p>
+                    <?php _e(wp_trim_words($res->post_content,20));?></p>
                 </div>
               </div>
             </li>
@@ -135,8 +135,8 @@ Template Name: Who we are
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="blog-con">
           <h2><?php _e(get_the_title($whatweare_info['get'])); ?></h2>
-          <h6><?php _e(get_post($whatweare_info['get'])->post_content); ?></h6>
-        <a href="#" class="btn btn-default"> get a quote</a> </div>
+          <h6><?php _e(get_post($whatweare_info['get'])->post_content); ?></h6><br/>
+         </div>
       </div>
     </div>
   </div>
@@ -156,7 +156,7 @@ Template Name: Who we are
         }
       }
     });
-	
+  
     </script>
 </html>
 <?PHP get_footer();?>

@@ -1,14 +1,15 @@
 <?php
 /* Template Name:what we do */
 get_header();
-?>
+?>eb 
+ <?php $whatwedo_info = get_option('whatwedo_info'); ?>
   <section class="blog-block">
     <div class="container">
       <div class="row">
       <div class="blog">
-      <h1>What we do</h1>
+      <h1><?php _e(get_the_title($whatwedo_info['whatwedo'])); ?></h1>
       <hr class="blog-bor">
-      <p>Contrary to popular belief, Lorem Ipsum is not simply random text. </p>
+      <p><?php _e(get_post($whatwedo_info['whatwedo'])->post_content); ?> </p>
        </div>
        </div>
     </div>
@@ -43,7 +44,6 @@ get_header();
 <div class="clear2"></div>
 <div class="row">
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-<?php $whatwedo_info = get_option('whatwedo_info'); ?>
 <h1 class="web1 text-center"><?php _e(get_the_title($whatwedo_info['webdevelopement'])); ?></h1></h1>
 <div class="clear2"></div>
 <p class="what-we-do1">
@@ -60,7 +60,7 @@ get_header();
       <ul class="nav nav-pills">
         <li class="presen" role="presentation"><a href="<?php _e(get_permalink(188));?>"><!--<i class="fa fa-desktop"></i>--><img src="<?php echo get_template_directory_uri(); ?>/images/develop1.png"><br><span>
  WEB DESIGN</span></a></li>
-        <li class="presen" role="presentation"><!--<img src="images/bb.png">--><a href="<?php _e(get_permalink());?>"><!--<i class="fa fa-desktop"></i>--><img src="<?php echo get_template_directory_uri(); ?>/images/bb.png"><br><span>PHP DEVELOPMENT</span></a></li> 
+        <li class="presen" role="presentation"><!--<img src="images/bb.png">--><a href="#web-design"><!--<i class="fa fa-desktop"></i>--><img src="<?php echo get_template_directory_uri(); ?>/images/bb.png"><br><span>PHP DEVELOPEMENT</span></a></li> 
       </ul>
     </div>
   </div>
@@ -71,8 +71,9 @@ get_header();
 <div class="row">
 <div class="col-md-7 col-lg-7 col-xs-12 col-sm-12">
 <p class="website">
-<?php _e(get_post($whatwedo_info['developement'])->post_content); ?></p>
-<a class="btn btn-default" href="<?php _e(get_permalink());?>"> Read More</a>
+<?php _e(wp_trim_words(get_post($whatwedo_info['developement'])->post_content,80));?>
+</p>
+<a class="btn btn-default" href="<?php _e(get_permalink(185));?>"> Read More</a>
 </div>
 <div class="col-md-5 col-lg-5 col-xs-12 col-sm-12">
 <?php _e(get_the_post_thumbnail($whatwedo_info['developement'],'full', array( 'class' => 'res img-responsive' ))); ?>
@@ -86,10 +87,11 @@ get_header();
 <div class="clear2"></div>
 <div class="row">
 <div class="col-xs-12 col-md-12 col-lg-12 col-sm-12">
-<h1 class="demo1 text-center">Our Work <strong>Methodology</strong></h1><hr class="blog-bor"><div class="clear2"></div>
+<h1 class="demo1 text-center"><?php _e(get_the_title($whatwedo_info['methodology'])); ?></h1><hr class="blog-bor"><div class="clear2"></div>
 </div>
 <div class="col-xs-12 col-md-12 col-lg-12 col-sm-12">
-<img class="source img-responsive" src="<?php echo get_template_directory_uri(); ?>/images/rename.png"></div>
+<?php _e(get_the_post_thumbnail($whatwedo_info['methodology'],'full', array( 'class' => 'source img-responsive' ))); ?>
+</div>
 </div>
 </div>
 </section>

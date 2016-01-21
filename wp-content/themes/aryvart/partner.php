@@ -6,14 +6,14 @@ Template Name: Partner
 <?PHP get_header();?>
 
   <!-- header -->
-  
+  <?php $service_info = get_option('service_info'); ?>
   <section class="blog-block clearfix">
     <div class="container">
       <div class="row">
       <div class="blog">
-      <h1>BECOME A PARTNER</h1>
+      <h1><?php _e(get_the_title($service_info['partnerpage'])); ?></h1>
       <hr class="partner-bor">
-      <p>Contrary to popular belief, Lorem Ipsum is not simply random text.</p>
+      <p><?php _e(get_post($service_info['partnerpage'])->post_content); ?></p>
        </div>
        </div>
     </div>
@@ -48,9 +48,8 @@ Template Name: Partner
 <div class="container partner3">
 <div class="row">
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 partner3 part3">
-<h1>Our Partners:</h1></div>
+<h1><?php _e(get_the_title($whatwedo_info['ourpartners'])); ?></h1></div>
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-<img src="<?php echo get_template_directory_uri(); ?>/images/1223.png" class="img-responsive"></div>
+<?php _e(get_the_post_thumbnail($whatwedo_info['ourpartners'],'full', array( 'class' => 'img-responsive' ))); ?></div>
 </div></div>
 <?php get_footer(); ?>		  
-

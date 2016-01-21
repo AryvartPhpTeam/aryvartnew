@@ -33,28 +33,16 @@
     <div class="carousel-inner" role="listbox"> 
       
       <!-- First slide -->
-      <div class="item active"> <img src="<?php echo get_template_directory_uri(); ?>/images/banner.jpg" class="img-responsive" alt="Aryvart"> 
-       
-      </div>
-      <!-- /.item --> 
-      
-      <!-- Second slide -->
-      <div class="item"> <img src="<?php echo get_template_directory_uri(); ?>/images/banner01.jpg" class="img-responsive" alt="Aryvart"> 
-       
-      </div>
-      <!-- /.item --> 
-      
-      <!-- Third slide -->
-      <div class="item"> <img src="<?php echo get_template_directory_uri(); ?>/images/banner02.jpg" class="img-responsive" alt="Aryvart"> 
-      
-      </div>
-      <!-- /.item --> 
-      <!-- Fourth slide -->
-      <div class="item"> <img src="<?php echo get_template_directory_uri(); ?>/images/banner03.jpg" class="img-responsive" alt="Aryvart">
-        
-      </div>
-      <!-- /.item --> 
-      
+     <?php $i=0; 
+      $slider = get_posts(array('post_type' => 'slider'));
+      foreach($slider as $res){
+        $image = wp_get_attachment_image_src( get_post_thumbnail_id( $res->ID ), 'single-post-thumbnail' );
+      ?>
+        <div class="item <?php if($i==0) {?>active <?php } ?>">
+          <img src="<?php _e($image[0]); ?>" class="img-responsive" alt="Aryvart"/>
+        </div>
+        <?php $i++; } ?>
+     <!-- /.item --> 
     </div>
    
   </div>
@@ -103,21 +91,21 @@
             <strong class="bor-bot">Effortlessly</strong></h2>
           <p>Our elegant aesthetics makes your business <br>
             stand out from the crowd</p>
-          <a href="" class="btn btn-default">more features</a> </div>
+          <a href="<?php _e(get_permalink(55));?>" class="btn btn-default">more features</a> </div>
       </div>
     </div>
   </section>
 </div>
 <?php }else{
 /*<!-- header-bar -->*/
-
+ $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' );
  if(is_page( 'how-it-works') ){ ?>
    <link href="<?php echo get_template_directory_uri(); ?>/css/animate.min.css" rel="stylesheet">
 <link href="<?php echo get_template_directory_uri(); ?>/css/demo.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/responsive.css">
 </head>
 <body>
-<div class="header-bar5 hidden-xs">
+<div style="background:url(<?php _e($image[0]);?>) no-repeat #444" class="header-bar5 hidden-xs">
   <div class="container">
 <?php } 
 else if(is_page('who-we-are')) { ?>
@@ -127,7 +115,7 @@ else if(is_page('who-we-are')) { ?>
 <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/hover.css">
 </head>
 <body>
-<div class="header-bar4 hidden-xs">
+<div style="background:url(<?php _e($image[0]);?>) no-repeat #444" class="header-bar4 hidden-xs">
   <div class="container">
   <?php } 
   else if(is_page('what-we-do')) { ?>
@@ -137,7 +125,7 @@ else if(is_page('who-we-are')) { ?>
 <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/responsive.css">
 </head>
 <body>
-<div class="header-bar10 hidden-xs">
+<div style="background:url(<?php _e($image[0]);?>) no-repeat #444" class="header-bar10 hidden-xs">
   <div class="container">
   <?php }
   else if(is_page('web-design')) { ?>
@@ -147,7 +135,17 @@ else if(is_page('who-we-are')) { ?>
 <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/responsive.css">
 </head>
 <body>
-<div class="header-bar10 hidden-xs">
+<div style="background:url(<?php _e($image[0]);?>) no-repeat #444 scroll 0% 0% / cover;" class="header-bar10 hidden-xs">
+  <div class="container">
+  <?php }
+else if(is_page('php-developement')) { ?>
+  <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/font-awesome.css">
+<link href="<?php echo get_template_directory_uri(); ?>/css/animate.min.css" rel="stylesheet">
+<link href="<?php echo get_template_directory_uri(); ?>/css/demo.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/responsive.css">
+</head>
+<body>
+<div style="background:url(<?php _e($image[0]);?>) no-repeat #444" class="header-bar10 hidden-xs">
   <div class="container">
   <?php }
   else if(is_page('portfolio')) { ?>
@@ -156,7 +154,7 @@ else if(is_page('who-we-are')) { ?>
 <link href="<?php echo get_template_directory_uri(); ?>/css/bootstrap.lightbox.css" rel="stylesheet" media="screen">
 </head>
 <body>
-<div class="header-bar3 hidden-xs">
+<div style="background:url(<?php _e($image[0]);?>) no-repeat #444" class="header-bar3 hidden-xs">
   <div class="container">
   <?php } 
   else if(is_page('blog')) { ?>
@@ -165,7 +163,16 @@ else if(is_page('who-we-are')) { ?>
 <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/responsive.css">
 </head>
 <body>
-<div class="header-bar2 hidden-xs">
+<div style="background:url(<?php _e($image[0]);?>) no-repeat #444" class="header-bar2 hidden-xs">
+  <div class="container">
+  <?php }
+else if(is_page('events')) { ?>
+  <link href="<?php echo get_template_directory_uri(); ?>/css/animate.min.css" rel="stylesheet">
+<link href="<?php echo get_template_directory_uri(); ?>/css/demo.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/responsive.css">
+</head>
+<body>
+<div style="background:url(<?php _e($image[0]);?>) no-repeat #444" class="blog-bg2 hidden-xs">
   <div class="container">
   <?php }
    else if(is_singular('events')) { ?>
@@ -174,19 +181,17 @@ else if(is_page('who-we-are')) { ?>
 <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/responsive.css">
 </head>
 <body>
-<div class="header-bar7 hidden-xs">
+<div style="background:url(<?php _e($image[0]);?>) no-repeat #444" class="blog-bg2 hidden-xs">
   <div class="container">
   <?php }
   else if(is_singular('blog')) { ?>
   <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri();?>/css/font-awesome.css">
-<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri();?>/css/bootstrap.css">
 <link href="<?php echo get_template_directory_uri();?>/css/animate.min.css" rel="stylesheet">
 <link href="<?php echo get_template_directory_uri();?>/css/demo.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri();?>/css/style.css">
 <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri();?>/css/responsive.css">
 </head>
 <body>
-  <div class="blog-bg2 hidden-xs">
+  <div style="background:url(<?php _e($image[0]);?>) no-repeat #444" class="header-bar2 hidden-xs">
   <div class="container">
 
   <?php }
@@ -196,7 +201,7 @@ else if(is_page('who-we-are')) { ?>
 <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/responsive.css">
 </head>
 <body>
-<div class="header-bar6 hidden-xs">
+<div style="background:url(<?php _e($image[0]);?>) no-repeat #444" class="header-bar6 hidden-xs">
   <div class="container">
   <?php }
   else if(is_page('contact'))
@@ -206,16 +211,16 @@ else if(is_page('who-we-are')) { ?>
        <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/responsive.css">
        </head>
        <body>
-       <div class="header-bar1 hidden-xs">
+       <div style="background:url(<?php _e($image[0]);?>) no-repeat #444 scroll 0% 0% / cover;" class="header-bar1 hidden-xs">
        <div class="container">
      <?php }
-      else if(is_page('carreier')) { ?>
+      else if(is_page('career')) { ?>
         <link href="<?php echo get_template_directory_uri(); ?>/css/animated-masonry-gallery.css" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/style.css">
         <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/responsive.css">
         </head>
         <body>
-        <div class="header-bar7 hidden-xs">
+        <div style="background:url(<?php _e($image[0]);?>) no-repeat #444" class="header-bar7 hidden-xs">
         <div class="container">
       <?php }
        else if(is_taxonomy('post_tag')) { ?>
@@ -225,7 +230,7 @@ else if(is_page('who-we-are')) { ?>
 </head>
 <body>
 
-<div class="blog-bg2 hidden-xs">
+<div style="background:url(<?php _e($image[0]);?>) no-repeat #444" class="header-bar2 hidden-xs">
   <div class="container">
   <?php } ?>
     <div class="row icon-hide">
@@ -244,7 +249,7 @@ else if(is_page('who-we-are')) { ?>
     <div class="container">
       <div class="row">
         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-          <div class="logo"> <a href="<?php echo get_template_directory_uri(); ?>/index.html"><img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="Aryvart Logo" class="img-responsive"></a> </div>
+          <div class="logo"> <a href="<?php _e(site_url());?>"><img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="Aryvart Logo" class="img-responsive"></a> </div>
         </div>
         <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
           <div class="menu">

@@ -12,6 +12,7 @@ Template Name: portfolio
       <div class="blog">
       <h1><?php _e(get_the_title($work_info['portifolio'])); ?></h1>
       <hr class="blog-bor">
+
       <p><?php _e(get_post($whatwedo_info['portifolio'])->post_content); ?></p>
        </div>
        </div>
@@ -35,6 +36,7 @@ Template Name: portfolio
         <?php 
           $taxonomy = 'gallerytitle';
           $terms = get_terms($taxonomy, array('post_type' =>'gallery'));
+          
           foreach($terms as $name){
         ?>  
       <div class="gallery-header-center-right-links" id="filter-<?php _e($name->slug);?>"><?php _e($name->name);?></div>
@@ -53,7 +55,7 @@ Template Name: portfolio
                  foreach($terms as $name){
             ?>
 		
-		  <a href="#" title="Image #1" data-title-link="http://google.com" data-description="Lorem ipsum dolor" class="thumbnail img-responsive"><img src="<?php _e($name['thumb'])?>" class="all <?php _e($term_list[0]->slug);?>" alt=""/></a>
+		  <a href="<?php _e($name['thumb'])?>" title="<?php _e($term_list[0]->name);?>" data-title-link="http://google.com"  class="thumbnail img-responsive"><img src="<?php _e($name['thumb'])?>" class="all <?php _e($term_list[0]->slug);?>" alt=""/></a>
      
           <?php }}
         }?>
@@ -68,4 +70,3 @@ Template Name: portfolio
   </div>
 </section>
 <?php get_footer(); ?>
-

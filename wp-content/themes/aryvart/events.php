@@ -35,7 +35,7 @@ get_header();
           <hr class="line">
           <span><?php _e(date("M",strtotime(get_post_meta( $res->ID, 'entry_post_date', true ))));?></span> </div>
         <div class="news-events">
-       <img src="<?php _e($image[0]); ?>" class="img-responsive n-wd"> </div>
+       <img src="<?php _e($image[0]); ?>" style="width:457px; height:250px;"  class="img-responsive n-wd"> </div>
         <div class="news">
           <h3><?php _e($res->post_title);?></h3>
           <p><?php _e(wp_trim_words($res->post_content,17));?></p>

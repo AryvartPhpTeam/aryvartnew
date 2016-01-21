@@ -181,7 +181,7 @@ footer ul{ padding:17px 0 7px;}
 footer ul li a{ color:#ccc; padding:10px 0px; font-family:'Lato', sans-serif;}
 footer ul li a:hover{ color:#fff;}
 /* contact */
-.header-bar1{ background:transparent url("images/contact-banner.jpg") no-repeat scroll 0% 0% / cover; max-width:100%;}
+.header-bar1{   max-width:100%;}
 .contact-block1{ margin-top:50px;}
 .contact-add1{ background:rgba(256,256,256,0.7); padding:12px; text-align:center; font-family:'Lato', sans-serif;margin-bottom: 10px; }
 .contact-add1 h3{ color:#0076ec; text-transform:uppercase; font-size:18px; font-weight:400; margin: 12px 0;}
@@ -196,7 +196,7 @@ footer ul li a:hover{ color:#fff;}
 .se-msg{ margin-bottom:50px;}
 .bor-radi{ border-radius:30px;}
 /* blog */
-.header-bar2{ background:url(images/blog-banner.jpg) no-repeat #444; max-width:100%;}
+.header-bar2{  max-width:100%;}
 .blog-bor{ max-width:100px; text-a lign:center;}
 .blog{ text-align:center;}
 .blog h1{ color:#fff; text-shadow: -3px -2px 3px #444; font-size:67px; font-weight:700; text-transform: uppercase; }
@@ -270,7 +270,7 @@ display: block;
 .give2 img{margin:10px;}
 
 /*dhavamani*/   
-.header-bar5{ background:url(images/blog-bg.jpg) no-repeat #444; max-width:100%; min-height: 478px; background-size: 100% 100%;} 
+.header-bar5{ max-width:100%; min-height: 478px; background-size: 100% 100%;} 
 .work{color:#FFF;}
 .work h1{font-weight:900;display:block;padding-bottom:0px;text-align:center;}
 .clear2{margin:50px} 
@@ -518,7 +518,7 @@ width:54%;
        border-color:#666;
 	   border-bottom-style: double; margin-left:10px;
        }
-.header-bar6{ background:url(images/partner.jpg) no-repeat #444; max-width:100%;background-size: 100% 100%;}
+.header-bar6{  max-width:100%;background-size: 100% 100%;}
        /*Blog Inner*/
 	   .folder i{color:#59646e;}
 	   .folder span{text-transform:uppercase;color:#59646e;font-size:13px;font-family:'Lato'}
@@ -544,13 +544,13 @@ padding:12px 29px; font-weight:600; font-size:17px; margin-top:10px; /*margin-bo
 .client-icon1{text-align:justify;padding:0px 20px;font-weight:800;border-left:4px solid #0080ff; margin: 0 0 10px 12px;}
 .quote{font-size:20px}
 .clear11{margin:50px}
-.blog-bg2{background:url(images/23.png) no-repeat}
+.blog-bg2{ padding-bottom:140px;}
 .clear12{margin:100px}/*Blog Inner */
  /* davamani  */
 /* selva */
-.header-bar3{ background:url(images/portfolio.jpg) no-repeat #444; max-width:100%; background-size: 100% 100%;}
-.header-bar4{ background:url(images/about.jpg) no-repeat #444; max-width:100%; background-size: 100% 100%;}
-.header-bar7{ background:url(images/carrier.jpg) no-repeat #444; max-width:100%; background-size: 100% 100%;}
+.header-bar3{  max-width:100%; background-size: 100% 100%;}
+.header-bar4{  max-width:100%; background-size: 100% 100%;}
+.header-bar7{  max-width:100%; background-size: 100% 100%;}
 .porfolio {margin: 30px 0;}
 .port-simple {
     text-align: center;
@@ -1035,7 +1035,7 @@ section.blog-bolck2.get {
 }
 .f-iconbox p{ font-family: 'Lato'; font-size:16px; }
 .clear13{margin:50px;}
-.header-bar10{ background:url("images/web-design.png") no-repeat #444; max-width:100%; background-size: 100% 100%;}
+.header-bar10{  max-width:100%; background-size: 100% 100%;}
 
 .header-bar10 {
     padding-bottom: 140px;
@@ -1046,7 +1046,7 @@ section.blog-bolck2.get {
 .paragraph {
     padding: 0 17px 39px 91px;
 }
-.header-bar11{background: url("images/web-inner.png") no-repeat scroll 0 0;
+.header-bar11{ scroll 0 0;
     max-width: 100%;margin-top: 70px;}
 	.web-inner{color:#FFF;font-weight:normal;font-size:28px;margin:50px 0px 0px}
 	.web-inner1{color:#FFF;font-size:32px;font-weight: bold;
@@ -1110,7 +1110,7 @@ font-family: lato;}
 }
 .out .btn-default:hover{background:#005aff; border: 1px solid #005aff; color:#fff;}
 .have{font-size:27px;font-family: 'Raleway'; }
-.header-bar12{background: url("images/img-1.png") no-repeat scroll 0 0;
+.header-bar12{ 
     max-width: 100%;}
 .source{padding:0px 0px 0px 160px}
 .header-bar12{padding-bottom:100px}

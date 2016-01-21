@@ -17,9 +17,9 @@
             
       <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 mar-top animatedParent">
         <div class="web-develop animated bounceInLeft slow">
-          <div class="we-dev"><img src="<?php _e($image[0]); ?>"></div>
+          <div class="we-dev"><img src="<?php _e($image[0]); ?>"  ></div>
           <h3><?php _e($res->post_title);?></h3>
-          <p><?php _e($res->post_content);?></p>
+          <p><?php _e(wp_trim_words($res->post_content,20));?></p>
         </div>
       </div>
       <div class="col-lg-4 col-md-4 col-xs-12">
@@ -39,8 +39,8 @@
       ?>
       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 mrg-10 animatedParent">
         <div class="client animated bounceInLeft slow">
-          <img src="<?php _e($image[0]); ?>">
-          <p><?php _e($res->post_content);?></p>
+          <img src="<?php _e($image[0]); ?>"  >
+          <p><?php _e(wp_trim_words($res->post_content,42));?></p>
         </div>
       </div>
       <?php }?>
@@ -117,7 +117,7 @@
       <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 animatedParent">
         <div class="latest-news animated bounceInRight slower">
           <p>Interested in finding out more? Click on all news for more information.</p>
-          <a href="<?php _e(get_permalink(301));?>" class="btn btn-default1">read all events</a> </div>
+          <a href="<?php _e(get_permalink(296));?>" class="btn btn-default1">read all events</a> </div>
       </div>
     </div>
     <div class="row mar-top1">
@@ -140,7 +140,7 @@
           <hr class="line">
           <span><?php _e(date("M",strtotime(get_post_meta( $res->ID, 'entry_post_date', true ))));?></span> </div>
         <div class="news-events">
-       <img src="<?php _e($image[0]); ?>" class="img-responsive n-wd"> </div>
+       <img src="<?php _e($image[0]); ?>" style="width:457px; height:250px;" class="img-responsive n-wd"> </div>
         <div class="news">
           <h3><?php _e($res->post_title);?></h3>
           <p><?php _e(wp_trim_words($res->post_content,17));?></p>
