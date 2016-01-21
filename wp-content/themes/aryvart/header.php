@@ -168,18 +168,7 @@ else if(is_page('who-we-are')) { ?>
 <div class="header-bar2 hidden-xs">
   <div class="container">
   <?php }
-  else if(is_taxonomy('post_tag')) { ?>
-
-  <link href="<?php echo get_template_directory_uri(); ?>/css/animate.min.css" rel="stylesheet">
-<link href="<?php echo get_template_directory_uri(); ?>/css/demo.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/responsive.css">
-</head>
-<body>
-
-<div class="blog-bg2 hidden-xs">
-  <div class="container">
-  <?php }
-  else if(is_singular('events')) { ?>
+   else if(is_singular('events')) { ?>
   <link href="<?php echo get_template_directory_uri(); ?>/css/animate.min.css" rel="stylesheet">
 <link href="<?php echo get_template_directory_uri(); ?>/css/demo.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/responsive.css">
@@ -219,8 +208,8 @@ else if(is_page('who-we-are')) { ?>
        <body>
        <div class="header-bar1 hidden-xs">
        <div class="container">
-     <?php } 
-     else { ?>
+     <?php }
+      else if(is_page('carreier')) { ?>
         <link href="<?php echo get_template_directory_uri(); ?>/css/animated-masonry-gallery.css" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/style.css">
         <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/responsive.css">
@@ -228,7 +217,17 @@ else if(is_page('who-we-are')) { ?>
         <body>
         <div class="header-bar7 hidden-xs">
         <div class="container">
-      <?php } ?>
+      <?php }
+       else if(is_taxonomy('post_tag')) { ?>
+  <link href="<?php echo get_template_directory_uri(); ?>/css/animate.min.css" rel="stylesheet">
+<link href="<?php echo get_template_directory_uri(); ?>/css/demo.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/responsive.css">
+</head>
+<body>
+
+<div class="blog-bg2 hidden-xs">
+  <div class="container">
+  <?php } ?>
     <div class="row icon-hide">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 touch">
         <div class="col-lg-9 col-md-9 col-sm-6 col-xs-12">

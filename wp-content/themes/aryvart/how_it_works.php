@@ -9,10 +9,10 @@ get_header();
     <div class="container">
       <div class="row">
       <div class="blog">
-      <?php $work_info = get_option('work_info'); ?>
-      <h1><?php _e(get_the_title($work_info['howitwork'])); ?></h1>
+      <?php $service_info = get_option('service_info'); ?>
+      <h1><?php _e(get_the_title($service_info['howitwork'])); ?></h1>
       <hr class="blog-bor">
-      <p><?php _e(get_post($work_info['howitwork'])->post_content); ?></p>
+      <p><?php _e(get_post($service_info['howitwork'])->post_content); ?></p>
        </div>
        </div>
     </div>
@@ -56,14 +56,14 @@ get_header();
 <div class="col-lg-8 col-md-8 col-xs-12 col-sm-6">
 <div class="clear2"></div>
 <div class="test">
-<h1><?php _e(get_the_title($work_info['testing'])); ?></h1></div>    <br>
+<h1><?php _e(get_the_title($service_info['testing'])); ?></h1></div>    <br>
 <div class="test1">
-<p><?php _e(get_post($work_info['testing'])->post_content); ?>
+<p><?php _e(get_post($service_info['testing'])->post_content); ?>
 </p></div>
 </div>
 <div class="clear2"></div>
 <div class="col-lg-4 col-md-4 col-xs-12 col-sm-6">
-<?php _e(get_the_post_thumbnail($work_info['testing'],'full', array( 'class' => 'img-responsive' ))); ?>
+<?php _e(get_the_post_thumbnail($service_info['testing'],'full', array( 'class' => 'img-responsive' ))); ?>
 </div>
 </div>
 <div class="clear2"></div>
@@ -73,14 +73,14 @@ get_header();
 <div class="row">
 <div class="clear2"></div>
 <div class="col-lg-5 col-md-5 col-xs-12 col-sm-6">
-<?php _e(get_the_post_thumbnail($work_info['project_management'],'full', array( 'class' => 'img-responsive' ))); ?>
+<?php _e(get_the_post_thumbnail($service_info['project_management'],'full', array( 'class' => 'img-responsive' ))); ?>
 </div>
 <div class="col-lg-7 col-md-7 col-xs-12 col-sm-6">
 <div class="test2">
-<h1 class="test3"><?php _e(get_the_title($work_info['project_management'])); ?></h1></div>
+<h1 class="test3"><?php _e(get_the_title($service_info['project_management'])); ?></h1></div>
 <div class="clear2"></div> 
 <div class="test4">
-<p><?php _e(get_post($work_info['project_management'])->post_content); ?></p></div>
+<p><?php _e(get_post($service_info['project_management'])->post_content); ?></p></div>
 </div> 
 </div>
 </div>
@@ -90,7 +90,7 @@ get_header();
 <div class="row">
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 <div class="blog-con">
-<p><?php _e(get_post($work_info['conclusion'])->post_content); ?> </p>
+<p><?php _e(get_post($service_info['conclusion'])->post_content); ?> </p>
 </div>
 </div>
 </div>
