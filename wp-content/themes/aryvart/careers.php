@@ -8,10 +8,10 @@ get_header();
     <div class="container">
       <div class="row">
       <div class="blog">
-      <?php $service_info = get_option('service_info'); ?>
-      <h1><?php _e(get_the_title($service_info['careers'])); ?></h1>
+      <?php $work_info = get_option('work_info'); ?>
+      <h1><?php _e(get_the_title($work_info['careers'])); ?></h1>
       <hr class="blog-bor">
-      <p><?php _e(get_post($service_info['careers'])->post_content); ?></p>
+      <p><?php _e(get_post($work_info['careers'])->post_content); ?></p>
        </div>
        </div>
     </div>
@@ -19,8 +19,8 @@ get_header();
 </div> <!-- end header-->
 <section class="career">
   <div class="container">
-      <p><?php _e(get_post($service_info['modal'])->post_content); ?></p>
-      <p><b><?php _e(get_post($service_info['lorem_ipsum'])->post_content); ?> </b></p>    
+      <p><?php _e(get_post($work_info['modal'])->post_content); ?></p>
+      <p><b><?php _e(get_post($work_info['lorem_ipsum'])->post_content); ?> </b></p>    
   </div>
 </section>
 <section class="opening">
@@ -30,8 +30,8 @@ get_header();
         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 padrgt0">            
             <ul id="nav-tabs-wrapper" class="nav nav-tabs nav-pills nav-stacked well">
               <li class="open"><a href="#vtab1" data-toggle="tab"><img src="<?php echo get_template_directory_uri(); ?>/images/opening.png"> Current Openings</a></li>
-              <li class="live"><a href="#vtab2" data-toggle="tab"><img src="<?php echo get_template_directory_uri(); ?>/images/life.png"> <?php _e(get_the_title($service_info['life'])); ?></a></li>
-              <li class="fun"><a href="#vtab3" data-toggle="tab"><img src="<?php echo get_template_directory_uri(); ?>/images/fun.png"> <?php _e(get_the_title($service_info['fun'])); ?></a></li>
+              <li class="live"><a href="#vtab2" data-toggle="tab"><img src="<?php echo get_template_directory_uri(); ?>/images/life.png"> <?php _e(get_the_title($work_info['life'])); ?></a></li>
+              <li class="fun"><a href="#vtab3" data-toggle="tab"><img src="<?php echo get_template_directory_uri(); ?>/images/fun.png"> <?php _e(get_the_title($work_info['fun'])); ?></a></li>
               <li class="join"><a href="#vtab4" data-toggle="tab"><img src="<?php echo get_template_directory_uri(); ?>/images/join.png"> Join Aryvart Family</a></li>
             </ul>
         </div>
@@ -58,24 +58,24 @@ get_header();
                 </div>
                 <div role="tabpanel" class="tab-pane fade" id="vtab2">
                     <div class="fun-ary">
-                    <?php _e(get_the_post_thumbnail($service_info['life'],'full', array( 'class' => 'img-responsive' ))); ?>
+                    <?php _e(get_the_post_thumbnail($work_info['life'],'full', array( 'class' => 'img-responsive' ))); ?>
                    </div>
                 </div>
                 <div role="tabpanel" class="tab-pane fade in" id="vtab3">
                    <div class="fun-ary">
-                    <?php _e(get_the_post_thumbnail($service_info['fun'],'full', array( 'class' => 'img-responsive' ))); ?>
+                    <?php _e(get_the_post_thumbnail($work_info['fun'],'full', array( 'class' => 'img-responsive' ))); ?>
                    </div>
                 </div>
                 <div role="tabpanel" class="tab-pane fade in" id="vtab4">
                    <div class="join-form clearfix">
-                      <?php _e(do_shortcode('[contact-form-7 id="171" title="Join Aryvart Family"]')); ?>
+                      <?php _e(do_shortcode('[contact-form-7 id="263" title="Join Aryvart Family"]')); ?>
                    </div>
                 </div>
             </div>
         </div>
         <div class="container">
   <div class="container">
-  <h2><?php _e(get_the_title($service_info['modal'])); ?></h2>
+  <h2><?php _e(get_the_title($work_info['modal'])); ?></h2>
   <!-- Trigger the modal with a button -->
 
 
@@ -113,7 +113,7 @@ get_header();
 </section>
 <section class="career">
   <div class="container">
-      <p><?php _e(get_post($service_info['modal'])->post_content); ?></p>
+      <p><?php _e(get_post($work_info['modal'])->post_content); ?></p>
   </div>
 </section>
 <!-- header-bar -->

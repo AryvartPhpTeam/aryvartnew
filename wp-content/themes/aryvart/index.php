@@ -33,7 +33,7 @@
   <div class="container">
     <div class="row">
       <?php 
-      $testimonial = get_posts(array('post_type' => 'testimonials-widget'));
+      $testimonial = get_posts(array('post_type' => 'testimonials'));
       foreach($testimonial as $res){
         $image = wp_get_attachment_image_src( get_post_thumbnail_id( $res->ID ), 'single-post-thumbnail' );
       ?>
@@ -117,7 +117,7 @@
       <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 animatedParent">
         <div class="latest-news animated bounceInRight slower">
           <p>Interested in finding out more? Click on all news for more information.</p>
-          <a href="<?php _e(get_permalink(226));?>" class="btn btn-default1">read all events</a> </div>
+          <a href="<?php _e(get_permalink(301));?>" class="btn btn-default1">read all events</a> </div>
       </div>
     </div>
     <div class="row mar-top1">

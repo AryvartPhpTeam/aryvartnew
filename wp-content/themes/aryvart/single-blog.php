@@ -295,7 +295,7 @@ All in-house projects are also subjected to the same level of testing to ensure 
 <div class="row">
 <?php   
   while ( have_posts() ) : the_post();
-  $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ), 'single-post-thumbnail' );?>
+  $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ), 'single-post-thumbnail' );
 ?>
    
 <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12">

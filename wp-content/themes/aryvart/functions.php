@@ -675,5 +675,18 @@ register_sidebars(1, array(
 if(isset($_GET['tag']))
 $_GET['post_type']='blog';
 
+add_action('init', 'testimonials');
 
+function testimonials() {
+    $args = array(
+                'labels' =>array(
+                        'name' => 'testimonials',
+                        'add_new_item' => 'Add New testimonials',
+                       ),
+                'public' => true,
+                'capability_type' => 'post',
+                'supports' => array('title','editor','author','comments','thumbnail')
+    );
+    register_post_type( 'testimonials' , $args );
+}
 
