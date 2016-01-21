@@ -1,4 +1,8 @@
-<?php get_header();
+<?php
+/*
+Template Name: bloginner
+*/
+?><?php get_header();
 ?>
 <div class="clear2"></div>
         <div class="container">
@@ -303,7 +307,7 @@ All in-house projects are also subjected to the same level of testing to ensure 
 </div>
 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 blog5">
 <div class="post-details1">
-<img src="<?php _e($image[0]);?>" class="img-responsive">
+<img src="<?php _e($image[0]);?>" style="width:598px; height:400px;" class="img-responsive">
 <div class="clear10"></div>
 <?php $taxonomy='blogcategory';
         $term=wp_get_post_terms($post->ID, $taxonomy, array("fields" => "names"));

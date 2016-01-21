@@ -41,7 +41,7 @@ Template Name: Blog
      $image = wp_get_attachment_image_src( get_post_thumbnail_id( $res->ID ), 'single-post-thumbnail' );?>
    <div class="row"> 
    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 <?php _e($class[$class_index]);?> ">
-    <img src="<?php _e($image[0]);?>" class="img-responsive">
+    <img src="<?php _e($image[0]);?>" style="width:598px; height:400px;"  class="img-responsive">
     </div>
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
     <div class="post-details">
@@ -75,7 +75,7 @@ Template Name: Blog
     </div>
     </div>
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 padd-lft">
-    <img src="<?php _e($image[0]);?>" class="img-responsive">
+    <img src="<?php _e($image[0]);?>" style="width:598px; height:400px;"   class="img-responsive">
     </div>
     <?php 
      $class[$class_index]++;}$i++;}?>

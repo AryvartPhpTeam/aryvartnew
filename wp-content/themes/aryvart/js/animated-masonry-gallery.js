@@ -17,7 +17,7 @@ function check_button(){
 		$("#gallery-header-center-left-title").html('All Galleries');
 		}
 	if(button==2){
-		$("#filter-design").addClass(button_class);
+		$("#filter-webdesigning").addClass(button_class);
 		$("#gallery-header-center-left-title").html('Design Gallery');
 		}
 	if(button==3){
@@ -46,7 +46,7 @@ function check_size(){
 
 	
 $("#filter-all").click(function() { $container.isotope({ filter: '.all' }); button = 1; check_button(); });
-$("#filter-web-designing").click(function() {  $container.isotope({ filter: '.web-designing' }); button = 2; check_button();  });
+$("#filter-webdesigning").click(function() {  $container.isotope({ filter: '.webdesigning' }); button = 2; check_button();  });
 $("#filter-branding").click(function() {  $container.isotope({ filter: '.branding' }); button = 3; check_button();  });
 $("#filter-development").click(function() {  $container.isotope({ filter: '.development' }); button = 4; check_button();  });
 $("#gallery-header-center-left-icon").click(function() { if(size==0){size=1;}else if(size==1){size=0;} check_size(); });

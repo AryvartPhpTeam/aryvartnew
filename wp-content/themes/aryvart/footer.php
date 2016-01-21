@@ -31,8 +31,8 @@
         <div class="foot" style="border-right:none;">
           <h4>Contact</h4>
           <ul>
-            <li><i class="fa fa-phone"></i> &nbsp; &nbsp;&nbsp;<?php _e($footer_menu['telephone']); ?></li>
-            <li><i class="fa fa-envelope-o"></i> &nbsp; &nbsp;<?php _e($footer_menu['website']); ?></li>
+            <li><i class="fa fa-phone"></i>&nbsp;&nbsp;<?php _e($footer_menu['telephone']); ?></li>
+            <li><i class="fa fa-envelope-o"></i> &nbsp;<?php _e($footer_menu['website']); ?></li>
             <li><i class="fa fa-map-marker"></i> &nbsp; &nbsp;<?php _e($footer_menu['address']); ?></li>
           </ul>
         </div>
@@ -100,7 +100,14 @@ if($(".sidebar_blog").length)
         <script>
 // Load code prettifier
 $(document).ready(function(){
-  //prettyPrint();
+  jQuery('#email1').keypress(function (event) {
+      var keycode = event.which;
+      if (!(event.shiftKey == false && (keycode == 46 || keycode == 8 || keycode == 37 || keycode == 39 || (keycode >= 48 && keycode <= 57)))) {
+          event.preventDefault();
+      }
+  });
+   $("#email1").attr('maxlength','10');
+   $("#email1").attr('minlength','10');
 });
 
 // Fancy text animation

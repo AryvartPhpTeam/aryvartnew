@@ -18,7 +18,20 @@ function event_register() {
     );
     register_post_type( 'events' , $args );
 }
+add_action('init', 'slider_register');
 
+function slider_register() {
+    $args = array(
+                'labels' =>array(
+                        'name' => 'Sliders',
+                        'add_new_item' => 'Add New Slider',
+                       ),
+                'public' => true,
+                'capability_type' => 'post',
+                'supports' => array('title','editor','author','comments','thumbnail')
+    );
+    register_post_type( 'slider' , $args );
+}
 add_action('init', 'partner_register');
 
 function partner_register() {
@@ -350,7 +363,14 @@ function my_option(){
         'Webdesign' => 'Web Design',
         'partner' => 'Partners Page',
         'blog' => 'Blog',
-        'portifolio' => 'Portifolio'
+        'portifolio' => 'Portifolio',
+        'ourpartners' =>'Our Partners',
+        'methodology' =>'Our Work Methodology',
+        'responsive' =>'Ultra Responsive',
+        'processflow' =>'Our Process Flow',
+        'whatwedo' =>'What We Do',
+        'design' => 'Web Design Banner',
+        'phpdevelopement' => 'Php Developement Banner'
         );
 
     ?>
@@ -454,6 +474,7 @@ function my_work_option(){
         'testing' => 'TESTING',
         'project_management' => 'PROJECT MANAGEMENT',
         'conclusion' => 'Conclusion Page',
+        'partnerpage' => 'Become Partners',
         );
 
     ?>
@@ -550,8 +571,8 @@ add_action('init', 'howit_work');
 function howit_work() {
     $args = array(
                 'labels' =>array(
-                        'name' => 'Issues',
-                        'add_new_item' => 'Add New Issues',
+                        'name' => 'Icon Slider',
+                        'add_new_item' => 'Add New Icon Slider',
                        ),
                 'public' => true,
                 'capability_type' => 'post',
@@ -689,4 +710,3 @@ function testimonials() {
     );
     register_post_type( 'testimonials' , $args );
 }
-

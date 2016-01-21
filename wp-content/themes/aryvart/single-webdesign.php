@@ -2,13 +2,14 @@
 /* Template Name:Web Design*/
 get_header();
 ?>
+<?php $whatwedo_info = get_option('whatwedo_info'); ?>
  <section class="blog-block">
     <div class="container">
       <div class="row">
       <div class="blog">
-      <h1>WEB DESIGN</h1>
+      <h1><?php _e(get_the_title($whatwedo_info['design'])); ?></h1>
       <hr class="blog-bor">
-      <p>Contrary to popular belief, Lorem Ipsum is not simply random text. </p>
+      <p><?php _e(get_post($whatwedo_info['design'])->post_content); ?></p>
        </div>
        </div>
     </div>
@@ -20,7 +21,6 @@ get_header();
 <div class="clear2"></div>
 <div class="row">
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 web-design1">
-   <?php $whatwedo_info = get_option('whatwedo_info'); ?>
 <h1 class="web text-center"><?php _e(get_the_title($whatwedo_info['webdesign'])); ?></h1>
 <hr class="blog-bor4">
 <p>
@@ -76,10 +76,10 @@ get_header();
 <div class="container">
 <div class="row">
 <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
-<h1 class="web-inner text-center">Ultra Responsive</h1>
-<h1 class="web-inner1 text-center">Mobile, Tablets & Desktop</h1></div>
-<div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 web-in">
-<img class="img-responsive" alt="image description" src="<?php echo get_template_directory_uri(); ?>/images/cm.png"  style="align:center">
+<h1 class="web-inner text-center"><?php _e(get_the_title($whatwedo_info['responsive'])); ?></h1>
+<h1 class="web-inner1 text-center"><?php _e(get_post($whatwedo_info['responsive'])->post_content);?></h1></div>
+<div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 web-in" style="align:center">
+<?php _e(get_the_post_thumbnail($whatwedo_info['responsive'],'full',array('class'=>'img-responsive'))); ?>
 </div>
 </div>
 </div>
@@ -89,7 +89,7 @@ get_header();
 <div class="container">
 <div class="row">
 <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
-<h1 class="web-inner2 text-center">Our Process Flow</h1>
+<h1 class="web-inner2 text-center"><?php _e(get_the_title($whatwedo_info['processflow'])); ?></h1>
 <hr class="blog-bor9">
 </div>
 </div>
@@ -99,7 +99,8 @@ get_header();
 <div class="container">
 <div class="row">
 <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 web-in1">
-<img class="img-responsive" alt="image description" src="<?php echo get_template_directory_uri(); ?>/images/xs.png">
+<?php _e(get_the_post_thumbnail($whatwedo_info['processflow'],'full',array('class'=>'img-responsive'))); ?>
+
 <!--<div class="w50 left centered wow fadeInUp" data-wow-delay="0.25s">
                         <div class="service-item tb-offset-sm">
                             <div class="circle-icon">
